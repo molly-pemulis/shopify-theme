@@ -196,22 +196,6 @@
         class="collection-description-wrapper"
         data-collection-desc-wrapper
       >
-        {%- liquid
-          assign collection_label = collection.metafields.custom.collection_label
-          if collection_label == blank
-            assign handle = collection.handle | downcase
-            if handle contains 'fin'
-              assign collection_label = 'About these fins'
-            elsif handle contains 'wetsuit'
-              assign collection_label = 'About these wetsuits'
-            elsif handle contains 'tee' or handle contains 't-shirt' or handle contains 'shirt'
-              assign collection_label = 'About these pieces'
-            else
-              assign collection_label = 'About these boards'
-            endif
-          endif
-        -%}
-
         <button
           type="button"
           class="collection-description-toggle"
@@ -219,7 +203,7 @@
           aria-expanded="false"
         >
           <span class="collection-description-toggle__label">
-            {{ collection_label }}
+            Description
           </span>
           <span class="collection-description-toggle__icon" aria-hidden="true">▾</span>
         </button>
