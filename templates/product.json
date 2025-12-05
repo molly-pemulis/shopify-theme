@@ -1,1 +1,179 @@
-{"sections":{"main":{"type":"main-product","blocks":{"title":{"type":"title","settings":{}},"vendor":{"type":"vendor","settings":{}},"price":{"type":"price","settings":{"show_tax_and_shipping":false,"enable_product_reviews_by_price":true}},"variant-picker":{"type":"variant-picker","settings":{"show_single":true,"selector_style":"listed","dynamic_availability":"show","enable_size_chart":false,"size_chart_label":"Size guide","size_chart_variant":"Size","size_chart_page":""}},"accordion_YbXLi8":{"type":"accordion","settings":{"title":"CARE GUIDE","icon":"","content":"<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}<\/p>","page":"","custom_liquid":"","open":false,"show_in_quickbuy":false}},"buy-buttons":{"type":"buy-buttons","settings":{"show_quantity_selector":true,"enable_payment_button":true,"show_backorder_text":true,"show_pickup_availability":true,"show_gift_card_recipient":false}},"text_Jz3Vfp":{"type":"text","settings":{"text":"{{ product.metafields.shopify[\"candle-type\"] | metafield_text: field: 'label' }}","icon":"award","icon_size":"small","enable_box":false,"box_color":"#e0f4d5","show_in_quickbuy":false}},"description":{"type":"description","settings":{"show_in_tab":false,"open_tab":false,"icon":"","show_in_quickbuy":false}},"text_X8Jy9f":{"type":"text","settings":{"text":"{{ product.metafields.custom.designed_and_tested_in_los_angeles_by_crap_eyewear.value }}","icon":"","icon_size":"small","enable_box":false,"box_color":"#e0f4d5","show_in_quickbuy":false}},"accordion_LbYiC4":{"type":"accordion","source":"{{ product.metafields.custom.product_materials.value }}","settings":{"title":"Materials","icon":"","content":"<p>{{ product.metafields.custom.product_materials.value.crap_materials | metafield_tag }}<\/p>","page":"","custom_liquid":"","open":false,"show_in_quickbuy":false}}},"block_order":["title","vendor","price","variant-picker","accordion_YbXLi8","buy-buttons","text_Jz3Vfp","description","text_X8Jy9f","accordion_LbYiC4"],"settings":{"show_breadcrumbs":true,"select_first_variant":true,"show_location_underneath":false,"inventory_transfers_enable":true,"enable_sticky_columns":false,"enable_sticky_atc":true,"sticky_atc_position":"end","sticky_atc_mobile":true,"sticky_atc_behavior":"add_to_cart","sticky_atc_button_style":"secondary","gallery_size":"large","gallery_layout":"carousel-under","enable_zoom":true,"show_alt_text":false,"alt_text_icon":"","enable_video_autoplay":false,"enable_video_looping":false,"enable_media_grouping":false,"media_grouping_option":"Color,Colour,Couleur,Farbe"}},"related-products":{"type":"related-products","settings":{"title":"You may also like{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}","show_vendor":true,"grid":4}},"1732765082135c6ee0":{"type":"apps","settings":{"full_width":false,"show_space":true}}},"order":["main","related-products","1732765082135c6ee0"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "title": "You may also like{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}",
+        "show_vendor": false,
+        "grid": 5
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false,
+            "enable_product_reviews_by_price": true
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "show_single": true,
+            "selector_style": "listed",
+            "dynamic_availability": "show",
+            "enable_size_chart": false,
+            "size_chart_label": "Size guide",
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "accordion_YbXLi8": {
+          "type": "accordion",
+          "settings": {
+            "title": "CARE GUIDE",
+            "icon": "",
+            "content": "<p>{{ product.metafields.descriptors.care_guide | metafield_tag }}</p>",
+            "page": "",
+            "custom_liquid": "",
+            "open": false,
+            "show_in_quickbuy": false
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "enable_payment_button": true,
+            "show_backorder_text": true,
+            "show_pickup_availability": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "text_Jz3Vfp": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.shopify[\"candle-type\"] | metafield_text: field: 'label' }}",
+            "icon": "award",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_in_tab": false,
+            "open_tab": false,
+            "icon": "",
+            "show_in_quickbuy": true
+          }
+        },
+        "text_X8Jy9f": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.custom.designed_and_tested_in_los_angeles_by_crap_eyewear.value }}",
+            "icon": "",
+            "icon_size": "small",
+            "enable_box": false,
+            "box_color": "#e0f4d5",
+            "show_in_quickbuy": false
+          }
+        },
+        "accordion_LbYiC4": {
+          "type": "accordion",
+          "source": "{{ product.metafields.custom.product_materials.value }}",
+          "settings": {
+            "title": "Materials",
+            "icon": "",
+            "content": "<p>{{ product.metafields.custom.product_materials.value.crap_materials | metafield_tag }}</p>",
+            "page": "",
+            "custom_liquid": "",
+            "open": false,
+            "show_in_quickbuy": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor",
+        "price",
+        "variant-picker",
+        "accordion_YbXLi8",
+        "buy-buttons",
+        "text_Jz3Vfp",
+        "description",
+        "text_X8Jy9f",
+        "accordion_LbYiC4"
+      ],
+      "settings": {
+        "show_breadcrumbs": true,
+        "select_first_variant": true,
+        "show_location_underneath": false,
+        "inventory_transfers_enable": true,
+        "enable_sticky_columns": true,
+        "enable_sticky_atc": true,
+        "sticky_atc_position": "end",
+        "sticky_atc_mobile": true,
+        "sticky_atc_behavior": "add_to_cart",
+        "sticky_atc_button_style": "secondary",
+        "gallery_size": "large",
+        "gallery_layout": "carousel-under",
+        "enable_zoom": true,
+        "show_alt_text": false,
+        "alt_text_icon": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "1732765082135c6ee0": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "show_space": true
+      }
+    },
+    "featured_blog_MqLRTL": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "title": "Blog posts",
+        "blog": "blog",
+        "post_limit": 3,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpts": true,
+        "crop_ratio": "1.0",
+        "color_scheme": "default"
+      }
+    }
+  },
+  "order": [
+    "related-products",
+    "main",
+    "1732765082135c6ee0",
+    "featured_blog_MqLRTL"
+  ]
+}
