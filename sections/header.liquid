@@ -29,13 +29,21 @@
     }
   {%- endif -%}
 
+  .logo-area__middle {
+    display: flex;
+    justify-content: center;
+  }
+
   .logo-area__middle .logo-area__middle__inner {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 1rem;
+    flex-wrap: nowrap;
   }
 
   .logo-area__video {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
