@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{%- liquid
+  assign seo_page_title = page_title
+  assign seo_page_description = page_description
+
+  if request.page_type == 'index'
+    assign seo_page_title = 'Pemulis Water & Power – Surf Shop & Retail Destination in San Francisco (Outer Sunset)'
+    assign seo_page_description = 'Pemulis Water & Power is a surf shop and retail destination in the Outer Sunset neighborhood of San Francisco, offering surfboards, fins, candles, gifts, and more for cool, young, savvy shoppers.'
+  elsif request.page_type == 'product' and product
+    assign stripped = product.description | strip_html | strip
+    assign seo_page_description = stripped | truncate: 140 | append: ' Available at Pemulis Water & Power, a surf shop in San Francisco (Outer Sunset).'
+  elsif request.page_type == 'collection' and collection
+    assign base_desc = collection.description | strip_html | strip
+    if base_desc == ''
+      assign base_desc = collection.title | append: ' available at Pemulis Water & Power, a surf shop in San Francisco (Outer Sunset).'
+    endif
+    assign seo_page_description = base_desc | truncate: 155
+  elsif request.page_type == 'article' and article
+    assign stripped = article.excerpt_or_content | strip_html | strip
+    assign seo_page_description = stripped | truncate: 155
+  elsif request.page_type == 'page' and page
+    assign stripped = page.content | strip_html | strip
+    assign seo_page_description = stripped | truncate: 155
+  endif
+
+  assign page_title = seo_page_title
+  assign page_description = seo_page_description
+-%}
+<title>
+  {%- if request.page_type == 'password' -%}
+    {{- shop.name -}}
+  {%- else -%}
+    {{- page_title -}}
+    {%- if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif -%}
+    {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- endif -%}
+</title>
+
+{%- if canonical_url != blank -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+{%- endif -%}
+
+{%- if settings.favicon != blank -%}
+  {%- liquid
+    assign image_type = settings.favicon | split: '?' | first | split: '.' | last | downcase
+    if image_type == 'svg'
+      assign image_type = 'svg+xml'
+    endif
+  -%}
+  <link rel="icon" href="{{ settings.favicon | image_url: width: 48, height: 48 }}" type="image/{{ image_type }}">
+  <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}">
+{%- endif -%}
+
+{%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}

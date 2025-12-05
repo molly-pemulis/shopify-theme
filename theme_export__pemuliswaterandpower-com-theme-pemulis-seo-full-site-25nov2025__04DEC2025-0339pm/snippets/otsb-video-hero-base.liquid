@@ -1,0 +1,635 @@
+{%- liquid
+    assign screen_md = 768
+    if settings.heading_base_size != blank
+        assign base_size_heading = settings.heading_base_size | times: 0.0225
+    else
+        assign base_size_heading = 100 | times: 0.0225
+    endif
+    assign font_size_heading = section.settings.heading_size_video | times: 0.02 | times: base_size_heading
+    if settings.text_base_size != blank
+        assign size_text = section.settings.text_size | times: settings.text_base_size | times: 0.0000875
+    else
+        assign size_text = section.settings.text_size | times: 185 | times: 0.0000875
+    endif
+    assign video_alt = section.settings.video_alt_text
+    assign size_text_h = section.settings.text_size | times: 0.01
+
+    assign check_video = false
+    if section.settings.video_url.type == 'youtube'
+        assign video_type = 'youtube'
+        assign check_video = true
+        assign video_id = section.settings.video_url.id
+    endif
+    if section.settings.video_url.type == 'vimeo'
+        assign video_type = 'vimeo'
+        assign check_video = true
+        assign video_id = section.settings.video_url.id
+    endif
+
+    if section.settings.video != null
+        assign video_type = 'video_select'
+        assign check_video = true
+    endif
+-%}
+{%-capture fake_object_fit_cover -%}
+    @media (min-aspect-ratio: 16/9) {
+        #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero iframe {height: 1000%}
+    }
+    @media (max-aspect-ratio: 16 / 9) {
+        #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero iframe {width: 300%;left: -100%}
+    }
+{%- endcapture -%}
+{%- style -%}
+    #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero video {object-fit: cover}
+    {%- if section.settings.custom_height_mobile and section.settings.custom_height_desk -%}
+        {{- fake_object_fit_cover -}}
+    {%- endif -%}
+    {%- if section.settings.custom_height_mobile == true -%}
+        #shopify-section-{{ section.id }} .otsb__root .video-with-text-wrapper {padding-bottom: {{ section.settings.mobile_height }}px !important}
+        {%- unless section.settings.custom_height_desk -%}
+            {{- fake_object_fit_cover -}}
+        {%- endunless -%}
+    {%- endif -%}
+    {%- if section.settings.custom_height_desk == true -%}
+        @media (min-width: {{ screen_md }}px) {
+            #shopify-section-{{ section.id }} .otsb__root .video-with-text-wrapper {padding-bottom: {{ section.settings.desk_height }}px !important}
+        }
+        {%- unless section.settings.custom_height_mobile -%}
+            {{- fake_object_fit_cover -}}
+        {%- endunless -%}
+    {%- endif -%}
+    /* @media (max-width: 767px) {
+        #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero video {object-fit: cover}
+        #shopify-section-{{ section.id }} .otsb__root .video-with-text-wrapper {padding-bottom: 500px !important}
+        @media (min-aspect-ratio: 16/9) {
+            #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero iframe {height: 300%;top: -100%}
+        }
+        @media (max-aspect-ratio: 16 / 9) {
+            #shopify-section-{{ section.id }} .otsb__root .otsb-video-hero iframe {width: 300%;left: -100%}
+        }
+    } */
+    #shopify-section-{{ section.id }} .heading--{{ section.id }} {
+    --h1-font-size: {{ font_size_heading }}rem;
+    --h2-font-size: {{ font_size_heading }}rem;
+    --h3-font-size: {{ font_size_heading }}rem;
+    --h4-font-size: {{ font_size_heading }}rem;
+    --h5-font-size: {{ font_size_heading }}rem;
+    --h6-font-size: {{ font_size_heading }}rem;
+    {% if section.settings.colors_text_link.alpha != 0.0 %}
+        --colors-text-link: {{ section.settings.colors_text_link.red }}, {{ section.settings.colors_text_link.green }}, {{ section.settings.colors_text_link.blue }};
+    {% endif %}
+    }
+    #shopify-section-{{ section.id }} .otsb__root .otsb-rte a {
+    {% if section.settings.colors_text_link.alpha != 0.0 %}
+        --colors-text-link: {{ section.settings.colors_text_link.red }}, {{ section.settings.colors_text_link.green }}, {{ section.settings.colors_text_link.blue }};
+    {% endif %}
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgba(var(--colors-text-link, 253, 142, 22), 0.7), rgba(var(--colors-text-link, 253, 142, 22), 0.7), rgba(var(--colors-text-link, 253, 142, 22), 0.7));
+    background-size: 100% 0.1em, 0 0.1em;
+    background-position: 100% 100%, 100% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 250ms;
+    }
+    .promotion-banner--{{ section.id }} {
+    --image-treatment-overlay: var(--shopify-editor-setting-colors_image_treatment_overlay-format-red), var(--shopify-editor-setting-colors_image_treatment_overlay-format-green), var(--shopify-editor-setting-colors_image_treatment_overlay-format-blue);
+    }
+    .button--{{ section.id }}.otsb-button-solid,
+    .button--{{ section.id }}.otsb-button-solid:before {
+    {%- unless section.settings.color_button.alpha == 0.0 -%}
+        --colors-line-and-border: {{ section.settings.color_button.red }}, {{ section.settings.color_button.green }}, {{ section.settings.color_button.blue }};
+        --colors-button: {{ section.settings.color_button.red }}, {{ section.settings.color_button.green }}, {{ section.settings.color_button.blue }};
+    {%- else -%}
+        --colors-line-and-border: var(--colors-button);
+    {%- endunless -%}
+    {%- unless section.settings.color_button_hover.alpha == 0.0 -%}
+        --colors-button-hover: rgb({{ section.settings.color_button_hover.red }}, {{ section.settings.color_button_hover.green }}, {{ section.settings.color_button_hover.blue }});
+    {%- endunless -%}
+    {%- unless section.settings.color_text_button.alpha == 0.0 -%}
+        --colors-button-text: {{ section.settings.color_text_button.red }}, {{ section.settings.color_text_button.green }}, {{ section.settings.color_text_button.blue }};
+    {%- endunless -%}
+    {%- unless section.settings.color_text_button_hover.alpha == 0.0 -%}
+        --colors-button-text-hover: {{ section.settings.color_text_button_hover.red }}, {{ section.settings.color_text_button_hover.green }}, {{ section.settings.color_text_button_hover.blue }};
+    {%- endunless -%}
+    }
+    }
+    {% if section.settings.colors_text_link.alpha != 0.0 %}
+        .button--{{ section.id }}.button-text-link, .video-with-text--{{ section.id }} a, .button--{{ section.id }}.button-text-link::after, .button--{{ section.id }}.button-text-link::before, .otsb-button-text
+        .content-text-{{ section.id }} {
+        --colors-text-link: {{ section.settings.colors_text_link.red }}, {{ section.settings.colors_text_link.green }}, {{ section.settings.colors_text_link.blue }};
+        }
+    {% endif %}
+    .heading--{{ section.id }}{
+    font-size: {{ font_size_heading | times: 0.5 }}rem;
+    }
+    .content-text-{{ section.id }} {
+    --h1-font-size: calc(var(--font-heading-scale) * 4rem * {{ size_text_h }});
+    --h2-font-size: calc(var(--font-heading-scale) * 2.4rem * {{ size_text_h }});
+    --h3-font-size: calc(var(--font-heading-scale) * 1.8rem * {{ size_text_h }});
+    --h4-font-size: calc(var(--font-heading-scale) * 1.5rem * {{ size_text_h }});
+    --h5-font-size: calc(var(--font-heading-scale) * 1.3rem * {{ size_text_h }});
+    --h6-font-size: calc(var(--font-heading-scale) * 1.1rem * {{ size_text_h }});
+    --h1-font-size-mobile: calc(var(--font-heading-scale) * 3rem * {{ size_text_h }});
+    --h2-font-size-mobile: calc(var(--font-heading-scale) * 2rem * {{ size_text_h }});
+    --h3-font-size-mobile: calc(var(--font-heading-scale) * 1.7rem * {{ size_text_h }});
+    --h4-font-size-mobile: calc(var(--font-heading-scale) * 1.5rem * {{ size_text_h }});
+    --h5-font-size-mobile: calc(var(--font-heading-scale) * 1.2rem * {{ size_text_h }});
+    --h6-font-size-mobile: calc(var(--font-heading-scale) * 1.1rem * {{ size_text_h }});
+    font-size: {{ size_text | times: 0.9 }}rem;
+    }
+    .x-button-{{ block.id }} .otsb-button.otsb-button-solid {
+    border: none;
+    box-shadow: none;
+    color: rgb(var(--colors-button-text));
+    background-color: rgba(var(--colors-button));
+    overflow: hidden;
+    background-origin: border-box;
+    }
+    .x-button-{{ block.id }} .otsb-button:before, .x-button-{{ block.id }} .otsb-button:after, .x-button-{{ block.id }} .otsb-button:not([disabled]):hover:after {
+    box-shadow: none;
+    }
+    @media (min-width: 768px) {
+    .content-text-{{ section.id }} {
+    font-size: {{ size_text }}rem;
+    }
+    .heading--{{ section.id }}{
+    font-size: {{ font_size_heading }}rem;
+    }
+    }
+    {%- if section.settings.content_position == "custom" -%}
+        @media screen and (min-width: 1024px) {
+        .promotion-banner--{{ section.id }} {
+        left:{{ section.settings.content_horizontal }}%;
+        top:{{ section.settings.content_vertical }}%;
+        transform: translate(-{{ section.settings.content_horizontal }}%,-{{ section.settings.content_vertical }}%);
+        }
+        }
+    {%- endif -%}
+    {% if section.settings.color_sub_heading.alpha != 0.0 %}
+        .sub-heading--{{ section.id }} {
+        color: rgba({{ section.settings.color_sub_heading.red }}, {{ section.settings.color_sub_heading.green }}, {{ section.settings.color_sub_heading.blue }})
+        }
+    {% endif %}
+    .heading--{{ section.id }} {
+    {% if section.settings.color_heading.alpha != 0.0 %}
+        --colors-heading: {{ section.settings.color_heading.red }}, {{ section.settings.color_heading.green }}, {{ section.settings.color_heading.blue }}
+    {% endif %}
+    }
+    {% if section.settings.color_text.alpha != 0.0 %}
+        .content-text-{{ section.id }} {
+        color: rgba({{ section.settings.color_text.red }}, {{ section.settings.color_text.green }}, {{ section.settings.color_text.blue }})
+        }
+    {% endif %}
+    .bg-gradient-radial {
+    background-image: radial-gradient(rgba(33,32,32,0.2) 0%, transparent 75%);
+    }
+    .x-button-{{ block.id }} .otsb-button-solid:hover {
+    color: rgb(var(--colors-button-text-hover));
+    }
+    .x-button-{{ block.id }} .otsb-button-solid:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 102%;
+    height: 500%;
+    background-color: var(--colors-button-hover);
+    backface-visibility: hidden;
+    will-change: transform;
+    transform: rotate3d(0,0,1,-10deg) translate3d(-130%,-10em,0);
+    transform-origin: 100% 0%;
+    transition: transform 0.5s ease;
+    }
+    .x-button-{{ block.id }} .otsb-button.otsb-button-solid:hover:before {
+    transform: rotate3d(0, 0, 1, 0) translateZ(0);
+    }
+    .x-button-{{ block.id }} .otsb-button-text {
+    color: rgb(var(--colors-text-link));
+    }
+    .video-with-text--{{ section.id }} {
+    {% if section.settings.color_overlay.alpha != 0.0 %}
+        --image-treatment-overlay: {{ section.settings.color_overlay.red }}, {{ section.settings.color_overlay.green }}, {{ section.settings.color_overlay.blue }}
+    {% endif %}
+    }
+    .video-with-text--{{ section.id }} div.otsb-image-treatment-overlay:empty {
+    display: block;
+    {% if section.settings.color_overlay.alpha == 0.0 %}
+        background: #000000;
+    {% endif %}
+    }
+{%- endstyle -%}
+{% if request.design_mode %}
+  <style>
+    .otsb_nope {
+      display: none !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      visibility: hidden !important;
+      width: 0 !important;
+      opacity: 0 !important;
+    }
+    ._otsb_warning {
+      position: relative;
+      box-shadow: 0rem 0.1875rem 0.0625rem -0.0625rem rgba(26, 26, 26, 0.07);
+      border-radius: 1rem;
+    }
+    ._otsb_warning::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      box-shadow: 0.0625rem 0rem 0rem 0rem rgba(0, 0, 0, 0.13) inset, -0.0625rem 0rem 0rem 0rem rgba(0, 0, 0, 0.13) inset, 0rem -0.0625rem 0rem 0rem rgba(0, 0, 0, 0.17) inset, 0rem 0.0625rem 0rem 0rem rgba(204, 204, 204, 0.5) inset;
+      border-radius: 1rem;
+      pointer-events: none;
+      mix-blend-mode: luminosity;
+    }
+  </style>
+  <div x-data="otsb_script_require" class="page-width" style="margin-top:36px;margin-bottom:36px">
+    <div class="_otsb_warning">
+      <div style="border-top-left-radius:1rem;border-top-right-radius:1rem;border:1px solid #fcaf0a;background:#fcb827;padding:1rem">
+        <div style="align-items:center;gap:8px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between">
+          <div style="display:flex;gap:4px;flex-direction:row;flex-wrap:nowrap;justify-content:space-between">
+            <span style="display:block;height:20px;width:20px;max-height:100%;max-width:100%;margin:auto">
+              <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true"><path d="M10 6.75a.75.75 0 0 1 .75.75v3.5a.75.75 0 1 1-1.5 0v-3.5a.75.75 0 0 1 .75-.75Z"></path><path d="M11 13.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path><path fill-rule="evenodd" d="M10 3.5c-1.045 0-1.784.702-2.152 1.447a449.26 449.26 0 0 1-2.005 3.847l-.028.052a403.426 403.426 0 0 0-2.008 3.856c-.372.752-.478 1.75.093 2.614.57.863 1.542 1.184 2.464 1.184h7.272c.922 0 1.895-.32 2.464-1.184.57-.864.465-1.862.093-2.614-.21-.424-1.113-2.147-2.004-3.847l-.032-.061a429.497 429.497 0 0 1-2.005-3.847c-.368-.745-1.107-1.447-2.152-1.447Zm-.808 2.112c.404-.816 1.212-.816 1.616 0 .202.409 1.112 2.145 2.022 3.88a418.904 418.904 0 0 1 2.018 3.875c.404.817 0 1.633-1.212 1.633h-7.272c-1.212 0-1.617-.816-1.212-1.633.202-.408 1.113-2.147 2.023-3.883a421.932 421.932 0 0 0 2.017-3.872Z"></path></svg>
+            </span>
+            <h2 style="overflow-wrap:anywhere;word-break:normal;font-size:100%;font-weight:650;line-height:1.25;color:rgb(37,26,0)">App Embeds Are Disabled</h2>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1rem;color:rgb(37,26,0)">
+        <p>To use this section, the app embeds of OT: Theme Sections must be enabled in the theme editor. Please follow these steps to activate them:</p>
+        <ul>
+          <li>In the left panel, click the last icon that says <b>“App embeds”</b>.</li>
+          <li>Enter <b>“OT”</b> on the search bar to quickly find and embed the apps from OT: Theme Sections.</li>
+          <li>Turn on the Toggle buttons of "Section Builder Script" and "Section Builder Style", then click <b>Save</b>.</li>
+        </ul>
+        <p>Please refer to the User Guide <a href="https://support.omnithemes.com/blogs/ot-theme-sections-get-started/1-embed-app-to-shopify-theme" target="_blank">here</a></p>
+        <p>For further support: feel free to contact us at <a href="mailto:support@omnithemes.com">support@omnithemes.com</a>!</p>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<div class="otsb__root otsb_nope" x-data="otsb_script_1">
+    <div
+        class="pt-[{{ section.settings.top_padding_mobile }}px] md:pt-[{{ section.settings.top_padding }}px] pb-[{{ section.settings.bottom_padding_mobile }}px] md:pb-[{{ section.settings.bottom_padding }}px]{% if section.settings.full_width_mobile %} pl-0 pr-0{% else %} pl-5 pr-5{% endif %}{% if section.settings.full_width %} md:pr-0 md:pl-0{% else %} page-width md:pl-5 md:pr-5{% endif %}">
+        <div
+            class="z-0 video-with-text-wrapper video-with-text--{{ section.id }} relative overflow-hidden w-full h-0 pb-[56.25%]{% if section.settings.rounded_corners %} md:rounded-[10px]{% else %} md:rounded-none{% endif %}{% if section.settings.rounded_corners_mobile %} rounded-[10px]{% endif %}"
+            {% if check_video %}
+                x-data
+                x-intersect:leave="$store.xVideo.pause($el)"
+                x-intersect="$store.xVideo.play($el)"
+            {% endif %}
+            {% if section.settings.video != blank %}
+                style="padding-bottom: {{ 1 | divided_by: section.settings.video.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+        >
+            <div
+                class="z-20 absolute top-0 left-0 bottom-0 right-0 otsb-image-treatment-overlay pointer-events-none opacity-{{ section.settings.overlay_opacity }} max-w-full max-h-full"></div>
+            {%- if section.settings.sub_heading_video != blank or section.settings.heading != blank or section.settings.text != blank or section.blocks.size != 0 -%}
+            <div
+                class="video-with-text-content{% if section.settings.content_position != "custom" %} page-width ml-5 mr-5 lg:mx-auto absolute top-0 left-0 bottom-0 right-0{% else %} w-full h-full{% endif %} z-20">
+                <div
+                    class="promotion-banner--{{ section.id }} w-full overflow-hidden absolute top-1/2 -translate-y-1/2 lg:max-w-3xl lg:w-3/5{% if section.settings.content_position != "custom" %} lg:promotion-alignment--{{ section.settings.content_position }}{% else %} p-5 z-20{% endif %} text-{{ section.settings.content_alignment }} left-0 right-0">
+                    <div
+                        class="relative{% if section.settings.content_alignment == "center" %} bg-gradient-radial{% endif %} empty:hidden inline-block w-full max-h-full pt-2 pb-2">
+                        {%- if section.settings.sub_heading_video != blank -%}
+                            <p class="sub-heading--{{ section.id }} h3 leading-tight overflow-hidden p-break-words pt-2 pb-1 md:pb-2 md:font-medium">
+                                {{ section.settings.sub_heading_video }}
+                            </p>
+                        {%- endif -%}
+                        {%- if section.settings.heading != blank -%}
+                        <{{ section.settings.heading_tag }} class="leading-tight heading--{{ section.id }} h2 block
+                        p-break-words">
+                        {{ section.settings.heading }}
+                    </{{ section.settings.heading_tag }}>
+                    {%- endif -%}
+                    {% if section.settings.text != blank %}
+                        <div class="content-text-{{ section.id }} otsb-rte mt-2 lg:mt-4">
+                            {{ section.settings.text }}
+                        </div>
+                    {% endif %}
+                    {%- for block in section.blocks -%}
+                        {% case block.type %}
+                            {%- when 'button' -%}
+                                {% if block.settings.button_label != blank %}
+                                    {%- liquid
+                                        case block.settings.button_type
+                                            when 'rounded'
+                                                assign borderRadius = '100px'
+                                            when 'rounded_corners'
+                                                assign borderRadius = '6px'
+                                            when 'mixed'
+                                                assign borderRadius = '6px 0 6px 0'
+                                            else
+                                                assign borderRadius = '0'
+                                        endcase
+                                    %}
+
+                                    {% style %}
+                                        .otsb__root .button-{{ block.id }}, .button-{{ block.id }} *:before {
+                                        --border-radius: {{ borderRadius }};
+                                        {% if block.settings.button_animation == 'slide' %}
+                                            --button-width: 102%;
+                                            --button-height: 500%;
+                                            --button-transform: rotate3d(0,0,1,-10deg) translate3d(-130%,-10em,0);
+                                            --button-transform-origin: 100% 0%;
+                                        {% elsif block.settings.button_animation == 'fill_up' %}
+                                            --button-width: 120%;
+                                            --button-height: 100%;
+                                            --button-transform: rotate3d(0,0,1,10deg) translate3d(-1.2em,110%,0);
+                                            --button-transform-origin: 0% 100%;
+                                        {% endif %}
+
+                                        {% if block.settings.button_light.alpha != 0.0 %}
+                                            --colors-button: {{ block.settings.button_light.red }}, {{ block.settings.button_light.green }}, {{ block.settings.button_light.blue }};
+                                        {% endif %}
+                                        {% if block.settings.button_text_light.alpha != 0.0 %}
+                                            --colors-button-text: {{ block.settings.button_text_light.red }}, {{ block.settings.button_text_light.green }}, {{ block.settings.button_text_light.blue }};
+                                        {% endif %}
+                                        {% if block.settings.button_hover_light.alpha != 0.0 %}
+                                            --colors-button-hover: rgb({{ block.settings.button_hover_light.red }}, {{ block.settings.button_hover_light.green }}, {{ block.settings.button_hover_light.blue }});
+                                        {% endif %}
+                                        {% if block.settings.button_text_hover_light.alpha != 0.0 %}
+                                            --colors-button-text-hover: {{ block.settings.button_text_hover_light.red }}, {{ block.settings.button_text_hover_light.green }}, {{ block.settings.button_text_hover_light.blue }};
+                                        {% endif %}
+                                        {% if block.settings.secondary_button_text_light.alpha != 0.0 %}
+                                            --colors-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                                            --colors-line-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                                        {% endif %}
+                                        {% if block.settings.secondary_button_light.alpha != 0.0 %}
+                                            --background-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                                            --colors-line-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                                        {% endif %}
+                                        }
+                                        .otsb__root .button-{{ block.id }} .otsb-button.otsb-button-outline {
+                                        {% if block.settings.secondary_button_text_light.alpha != 0.0 %}
+                                            --colors-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                                            --colors-line-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                                        {% endif %}
+                                        {% if block.settings.secondary_button_light.alpha != 0.0 %}
+                                            --background-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                                            --colors-line-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                                        {% endif %}
+                                        }
+                                        .dark .button-{{ block.id }}, .dark .button-{{ block.id }} *:before {
+                                        {% if block.settings.button_dark.alpha != 0.0 %}
+                                            --colors-button: {{ block.settings.button_dark.red }}, {{ block.settings.button_dark.green }}, {{ block.settings.button_dark.blue }};
+                                        {% else %}
+                                            {% if settings.colors_dark_button.red != blank and settings.colors_dark_button.green != blank and settings.colors_dark_button.blue != blank %}
+                                                --colors-button: {{ settings.colors_dark_button.red }}, {{ settings.colors_dark_button.green }}, {{ settings.colors_dark_button.blue }};
+                                            {% else %}
+                                                --colors-button: 255, 255, 255;
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if block.settings.button_text_dark.alpha != 0.0 %}
+                                            --colors-button-text: {{ block.settings.button_text_dark.red }}, {{ block.settings.button_text_dark.green }}, {{ block.settings.button_text_dark.blue }};
+                                        {% else %}
+                                            {% if settings.colors_dark_button_text.red != blank and settings.colors_dark_button_text.green != blank and settings.colors_dark_button_text.blue != blank %}
+                                                --colors-button-text: {{ settings.colors_dark_button_text.red }}, {{ settings.colors_dark_button_text.green }}, {{ settings.colors_dark_button_text.blue }};
+                                            {% else %}
+                                                --colors-button-text: 0, 0, 0;
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if block.settings.button_hover_dark.alpha != 0.0 %}
+                                            --colors-button-hover: rgb({{ block.settings.button_hover_dark.red }}, {{ block.settings.button_hover_dark.green }}, {{ block.settings.button_hover_dark.blue }});
+                                        {% else %}
+                                            {% if settings.colors_dark_button_hover.red != blank and settings.colors_dark_button_hover.green != blank and settings.colors_dark_button_hover.blue != blank %}
+                                                --colors-button-hover: rgb({{ settings.colors_dark_button_hover.red }}, {{ settings.colors_dark_button_hover.green }}, {{ settings.colors_dark_button_hover.blue }});
+                                            {% else %}
+                                                --colors-button-hover: rgb(255, 102, 0);
+                                            {% endif %}
+                                        {% endif %}
+                                        {% if block.settings.button_text_hover_dark.alpha != 0.0 %}
+                                            --colors-button-text-hover: {{ block.settings.button_text_hover_dark.red }}, {{ block.settings.button_text_hover_dark.green }}, {{ block.settings.button_text_hover_dark.blue }};
+                                        {% else %}
+                                            {% if settings.colors_dark_button_text_hover.red != blank and settings.colors_dark_button_text_hover.green != blank and settings.colors_dark_button_text_hover.blue != blank %}
+                                                --colors-button-text-hover: {{ settings.colors_dark_button_text_hover.red }}, {{ settings.colors_dark_button_text_hover.green }}, {{ settings.colors_dark_button_text_hover.blue }};
+                                            {% else %}
+                                                --colors-button-text-hover: 0, 0, 0;
+                                            {% endif %}
+                                        {% endif %}
+                                        }
+
+                                        {% if block.settings.button_color_mobile == "hover" %}
+                                            .x-button-{{ block.id }} [role="button"], .x-button-{{ block.id }} [type="button"], .x-button-{{ block.id }} .otsb-button {
+                                            color: rgb(var(--colors-button-text-hover));
+                                            }
+                                            .x-button-{{ block.id }} button.otsb-button-solid, .x-button-{{ block.id }} .otsb-button.otsb-button-solid {
+                                            border: none;
+                                            background-color: var(--colors-button-hover);
+                                            }
+                                            .x-button-{{ block.id }} button.otsb-button-disable-effect, .x-button-{{ block.id }} .otsb-button.otsb-button-disable-effect {
+                                            color: rgba(var(--colors-button-text-hover));
+                                            background-color: var(--colors-button-hover);
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-action {
+                                            border: none;
+                                            color: rgba(var(--colors-button-text-hover));
+                                            background-color: var(--colors-button-hover);
+                                            }
+                                        {% else %}
+                                            .x-button-{{ block.id }} [role="button"], .x-button-{{ block.id }} [type="button"], .x-button-{{ block.id }} .otsb-button {
+                                            color: rgb(var(--colors-button-text));
+                                            }
+                                            .x-button-{{ block.id }} button.otsb-button-solid, .x-button-{{ block.id }} .otsb-button.otsb-button-solid {
+                                            border: none;
+                                            background-color: rgba(var(--colors-button));
+                                            }
+                                            .x-button-{{ block.id }} button.otsb-button-disable-effect, .x-button-{{ block.id }} .otsb-button.otsb-button-disable-effect {
+                                            color: rgb(var(--colors-button-text));
+                                            background-color: rgba(var(--colors-button));
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-action {
+                                            border: none;
+                                            color: rgb(var(--colors-button-text));
+                                            background-color: rgba(var(--colors-button));
+                                            }
+                                        {% endif %}
+                                        .x-button-{{ block.id }} [role="button"], .x-button-{{ block.id }} [type="button"], .x-button-{{ block.id }} .otsb-button {
+                                        direction: ltr;
+                                        }
+
+                                        {% if block.settings.button_animation == 'sliced' %}
+                                            .x-button-{{ block.id }} .otsb-button.otsb-button-outline:not(.not-icon), .x-button-{{ block.id }} .otsb-button.otsb-button-solid:not(.not-icon) {
+                                            display: inline-flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            padding-left: 1.5rem;
+                                            padding-right: 1.5rem;
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid .otsb-button-icon, .x-button-{{ block.id }} .otsb-button-solid .otsb-button-text {
+                                            transition-timing-function: cubic-bezier(0,.71,.4,1);
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid .otsb-button-icon {
+                                            transition: opacity .25s,transform .5s;
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid .otsb-button-text {
+                                            transition: transform .5s;
+                                            transform: translateX(0.625rem);
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid:hover .otsb-button-text {
+                                            opacity: 1;
+                                            transform: translateX(0px);
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid:hover .otsb-button-icon {
+                                            opacity: 1;
+                                            transform: translateX(0.3125rem);
+                                            }
+                                        {% endif %}
+                                        {% if block.settings.button_animation == 'underline' %}
+                                            .x-button-{{ block.id }} .otsb-button-solid .otsb-button-text {
+                                            position: relative;
+                                            display: block;
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid .otsb-button-text::after {
+                                            content: "";
+                                            pointer-events: none;
+                                            bottom: 1px;
+                                            left: 50%;
+                                            position: absolute;
+                                            width: 0%;
+                                            height: 1px;
+                                            background-color: rgba(var(--colors-button-text));
+                                            transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+                                            transition-duration: 400ms;
+                                            transition-property: width, left;
+                                            }
+                                            .x-button-{{ block.id }} .otsb-button-solid:hover .otsb-button-text::after {
+                                            {% if block.settings.button_color_mobile == "hover" %}
+                                                background-color: rgba(var(--colors-button-text-hover));
+                                            {% else %}
+                                                background-color: rgba(var(--colors-button-text));
+                                            {% endif %}
+                                            width: 100%;
+                                            left: 0%;
+                                            }
+                                        {% endif %}
+
+                                        @media (min-width: 1024px){
+                                        .x-button-{{ block.id }} [role="button"], .x-button-{{ block.id }} [type="button"], .x-button-{{ block.id }} .otsb-button {
+                                        color: rgba(var(--colors-button-text));
+                                        }
+                                        .x-button-{{ block.id }} button.otsb-button-solid, .x-button-{{ block.id }} .otsb-button.otsb-button-solid {
+                                        border: none;
+                                        box-shadow: none;
+                                        color: rgb(var(--colors-button-text));
+                                        background-color: rgba(var(--colors-button));
+                                        overflow: hidden;
+                                        background-origin: border-box;
+                                        }
+                                        .x-button-{{ block.id }} button.otsb-button-solid:hover, .x-button-{{ block.id }} .otsb-button.otsb-button-solid:hover {
+                                        {% if block.settings.button_animation == 'sliced' or block.settings.button_animation == 'underline' %}
+                                            transition-duration: 0.2s;
+                                        {% else %}
+                                            transition-delay: 0.5s;
+                                        {% endif %}
+                                        transition-property: background-color;
+                                        background-color: var(--colors-button-hover);
+                                        color: rgba(var(--colors-button-text-hover));
+                                        background-origin: border-box;
+                                        }
+                                        .x-button-{{ block.id }} .otsb-button-action {
+                                        border: none;
+                                        color: rgba(var(--colors-button-text-hover));
+                                        background-color: var(--colors-button-hover);
+                                        }
+                                        .x-button-{{ block.id }} button.otsb-button-disable-effect, .x-button-{{ block.id }} .otsb-button.otsb-button-disable-effect {
+                                        color: rgb(var(--colors-button-text));
+                                        background-color: rgba(var(--colors-button));
+                                        }
+                                        .x-button-{{ block.id }} button.otsb-button-disable-effect:hover, .x-button-{{ block.id }} .otsb-button.otsb-button-disable-effect:hover {
+                                        color: rgba(var(--colors-button-text-hover));
+                                        background-color: var(--colors-button-hover);
+                                        }
+                                        {% if block.settings.button_animation == 'slide' or block.settings.button_animation == 'fill_up' %}
+                                            .x-button-{{ block.id }} button.otsb-button-solid:before, .x-button-{{ block.id }} .otsb-button.otsb-button-solid:before {
+                                            content: "";
+                                            z-index: -1;
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            bottom: 0;
+                                            left: 0;
+                                            width: var(--button-width);
+                                            height: var(--button-height);
+                                            background-color: var(--colors-button-hover);
+                                            backface-visibility: hidden;
+                                            will-change: transform;
+                                            transform: var(--button-transform);
+                                            transform-origin: var(--button-transform-origin);
+                                            transition: transform 0.5s ease;
+                                            }
+                                            .x-button-{{ block.id }} button.otsb-button-solid:hover:before, .x-button-{{ block.id }} .otsb-button.otsb-button-solid:hover:before {
+                                            transform: rotate3d(0,0,1,0) translateZ(0);
+                                            }
+                                        {% endif %}
+                                        {% if block.settings.button_animation == 'underline' %}
+                                            .x-button-{{ block.id }} .otsb-button-solid:hover .otsb-button-text::after {
+                                            background-color: rgba(var(--colors-button-text-hover));
+                                            }
+                                        {% endif %}
+                                        }
+                                        .otsb__root .x-button-{{ block.id }} .otsb-button.otsb-button-outline {
+                                        background: rgba(var(--background-secondary-button), 0.7);
+                                        color: rgba(var(--colors-secondary-button));
+                                        }
+                                        .otsb__root .x-button-{{ block.id }} .otsb-button.otsb-button-outline:hover {
+                                        background: rgba(var(--background-secondary-button), 1);
+                                        }
+                                    {% endstyle %}
+                                    <div
+                                        class="x-button-{{ block.id }} button-{{ block.id }} flex justify-{{ section.settings.content_alignment }} mt-4 mb-9 md:mt-8 md:mb-4"{{ block.shopify_attributes }}>
+                                        {% if block.settings.button_link == blank %}
+                                            <p class="otsb-button{% if block.settings.button_primary %} otsb-button-solid{% else %} otsb-button-outline{% endif %} leading-normal empty:otsb-hidden text-center pl-7 pr-7 pt-2.5 pb-2.5 md:pl-8 md:pr-8 md:pt-3 md:pb-3 opacity-70 hover:cursor-not-allowed">
+                                                {% render 'otsb-button-label', button_animation: block.settings.button_animation, button_label: block.settings.button_label, show_button_primary: block.settings.button_primary, custom_icon_button: block.settings.custom_icon_button %}
+                                            </p>
+                                        {% else %}
+                                            <a class="otsb-button{% if block.settings.button_primary %} otsb-button-solid{% else %} otsb-button-outline{% endif %} leading-normal empty:otsb-hidden text-center pl-7 pr-7 pt-2.5 pb-2.5 md:pl-8 md:pr-8 md:pt-3 md:pb-3"
+                                               href="{{ block.settings.button_link }}"{% if block.settings.open_new_window %} target="_blank"{% endif %}>
+                                                {% render 'otsb-button-label', button_animation: block.settings.button_animation, button_label: block.settings.button_label, show_button_primary: block.settings.button_primary, custom_icon_button: block.settings.custom_icon_button %}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                        {% endcase %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="video-hero otsb-video-hero otsb-external-video">
+            {% unless check_video %}
+                <div class="w-full h-full flex justify-center items-center absolute bg-[#c9c9c9]">
+          <span class="w-20 md:w-40 h-20 md:h-40 flex items-center">
+            {% render 'otsb-icon-media', icon: 'icon-video', class: 'text-[#acacac] w-full h-full' %}
+          </span>
+                </div>
+            {% endunless %}
+            {%- if video_type == 'youtube' or video_type == 'vimeo' -%}
+                <div
+                    class="w-full h-full absolute"
+                    x-data
+                    x-intersect="$store.xVideo.externalLoad($el, '{{ video_type }}', '{{ video_id }}', true, `{{ video_alt }}`, 0)"
+                >
+                </div>
+            {%- endif -%}
+            {% if video_type == 'video_select' %}
+                    {{ section.settings.video
+                    | video_tag:
+                    image_size: "1100x",
+                    loop: true,
+                    controls: false,
+                    autoplay: true,
+                    muted: true,
+                    class: "w-full h-full absolute top-0 left-0 video otsb-video",
+                    alt: video_alt
+                    }}
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>

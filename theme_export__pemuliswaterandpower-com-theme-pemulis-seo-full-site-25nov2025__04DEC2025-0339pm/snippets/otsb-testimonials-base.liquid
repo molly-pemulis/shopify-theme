@@ -1,0 +1,574 @@
+{%- liquid
+  if settings.heading_base_size != blank
+    assign heading_base_size = section.settings.heading_size
+  else
+    assign heading_base_size = 200
+  endif
+  assign size_heading = heading_base_size | times: section.settings.heading_size | times: 0.0002
+  assign size_heading_mobile = size_heading | times: 0.6
+  assign columns_desktop = section.settings.columns_desktop | plus: 0
+  assign columns_desktop_slide = section.settings.columns_desktop
+  assign swiper_on_mobile = true
+  if section.blocks.size < 2
+    assign swiper_on_mobile = false
+  endif
+  assign enable_desktop_slider = true
+  if section.blocks.size <= columns_desktop
+    assign enable_desktop_slider = false
+    assign columns_desktop_slide = section.blocks.size
+  endif
+  assign text_alignment = 'center'
+  if section.settings.text_alignment == 'end'
+    assign text_alignment = 'right'
+  endif
+  if section.settings.text_alignment == 'start'
+    assign text_alignment = 'left'
+  endif
+  if settings.lang_direction contains request.locale.iso_code
+    assign is_rtl = true
+    assign class_rtl = 'margin-left'
+  else
+    assign is_rtl = false
+    assign class_rtl = 'margin-right'
+  endif
+  assign focus = 'center'
+  if columns_desktop_slide == '2'
+    assign focus = 'right'
+  endif
+-%}
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    {% if section.settings.color_text_link.alpha != 0 %}
+      --colors-text-link: {{ section.settings.color_text_link.red }}, {{ section.settings.color_text_link.green }}, {{ section.settings.color_text_link.blue }};
+    {%  else %}
+      --colors-text-link: var(--color-foreground);
+    {% endif %}
+    {% if section.settings.border_color.alpha != 0 %}
+        --colors-line-and-border: {{ section.settings.border_color.red }},{{ section.settings.border_color.green }},{{ section.settings.border_color.blue }};
+        {%  else %}
+        --colors-line-and-border: var(--color-foreground);
+    {% endif %}
+    {% if settings.body_scale != blank %}
+      --font-body-scale:   {{ settings.body_scale |  times: 0.01}};
+    {% else %}
+      --font-body-scale: 1;
+    {% endif %}
+  }
+  .section--{{ section.id }} {
+    {%  if settings.heading_scale == blank %}
+      --font-heading-scale: 1;
+    {% endif %}
+  --h1-font-size: calc(var(--font-heading-scale) * 4rem);
+  --h2-font-size: calc(var(--font-heading-scale) * 2.4rem);
+  --h3-font-size: calc(var(--font-heading-scale) * 1.8rem);
+  --h4-font-size: calc(var(--font-heading-scale) * 1.5rem);
+  --h5-font-size: calc(var(--font-heading-scale) * 1.3rem);
+  --h6-font-size: calc(var(--font-heading-scale) * 1.1rem);
+  --h1-font-size-mobile: calc(var(--font-heading-scale) * 3rem);
+  --h2-font-size-mobile: calc(var(--font-heading-scale) * 2rem);
+  --h3-font-size-mobile: calc(var(--font-heading-scale) * 1.7rem);
+  --h4-font-size-mobile: calc(var(--font-heading-scale) * 1.5rem);
+  --h5-font-size-mobile: calc(var(--font-heading-scale) * 1.2rem);
+  --h6-font-size-mobile: calc(var(--font-heading-scale) * 1.1rem);
+  }
+  .otsb__root .otsb-h2.heading-{{ section.id }} {
+    font-size: calc(var(--font-heading-scale) * {{ size_heading }}rem);
+  {% if section.settings.heading_color.alpha != 0 %}
+      --colors-heading: {{ section.settings.heading_color.red }},{{ section.settings.heading_color.green }},{{ section.settings.heading_color.blue }};
+  {%  else %}
+      --colors-heading: var(--color-foreground);
+  {%endif%}
+  }
+
+  .otsb__root .otsb-h2.heading-{{ section.id }} {
+    font-size: {{ size_heading_mobile }}rem;
+  }
+  .otsb__root h3.title-size--{{ section.id }} {
+    font-size: calc(var(--font-body-scale) * 19px);
+  }
+  .author-{{ section.id }} {
+      font-size: calc(var(--font-body-scale) * 14px);
+    }
+    .author-note--{{ section.id }} {
+      font-size: calc(var(--font-body-scale) * 14px);
+    }
+  @media (max-width: 767px) {
+    .otsb__root h3.title-size--{{ section.id }} {
+      padding-top: 0.75rem;
+    }
+  }
+  .size_icon_testimonial--{{ section.id }} {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  @media (min-width: 768px) {
+    .size_icon_testimonial--{{ section.id }} {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+    .otsb__root .otsb-h2.heading-{{ section.id }} {
+      font-size: calc(var(--font-heading-scale) * {{ size_heading }}rem);
+    }
+    .author-{{ section.id }} {
+      font-size: calc(var(--font-body-scale) * 14px);
+    }
+    .author-note--{{ section.id }} {
+      font-size: calc(var(--font-body-scale) * 14px);
+    }
+    .otsb__root h3.title-size--{{ section.id }} {
+      font-size: calc(var(--font-body-scale) * 19px);
+    }
+    .desktop-height-{{ section.id }} {
+      min-height: 300px;
+    }
+    .otsb__root .otsb-pr-{{ section.id }} {
+      padding-right: 9.9rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .desktop-height-{{ section.id }} {
+      min-height: {{ section.settings.desktop_height }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_color_light }};
+  }
+  .dark #shopify-section-{{ section.id }} {
+    {% if section.settings.background_color_dark.alpha == 0.0 %}
+      background: transparent;
+    {% else %}
+      background: {{ section.settings.background_color_dark }};
+    {% endif %}
+  }
+  .bg-item--{{ section.id }} {
+    {% if section.settings.item_background_color_light.alpha != 0.0 %}
+      background: {{ section.settings.item_background_color_light }};
+    {% else %}
+      background: rgb(var(--colors-background-secondary));
+    {% endif %}
+  }
+
+  {% unless section.settings.heading_and_title_light.alpha == 0.0 %}
+    .color-heading--{{ section.id }} {
+      --colors-heading: {{ section.settings.heading_and_title_light.red }}, {{ section.settings.heading_and_title_light.green }}, {{ section.settings.heading_and_title_light.blue }};
+    }
+  {% endunless %}
+  {% unless section.settings.item_text_color_light.alpha == 0.0 %}
+    .color-text-{{ section.id }} {
+      --colors-text: {{ section.settings.item_text_color_light.red }}, {{ section.settings.item_text_color_light.green }}, {{ section.settings.item_text_color_light.blue }};
+    }
+  {% endunless %}
+  .author-{{ section.id }} {
+    font-size: calc(var(--font-body-scale) * 16px);
+    color: rgba(var(--colors-heading));
+  }
+  #shopify-section-{{ section.id }} .text-\[rgb\(var\(--colors-icon-rating\)\)\] {
+    {%  if section.settings.rating_color.alpha != 0 %}
+      --colors-icon-rating: {{ section.settings.rating_color.red }}, {{ section.settings.rating_color.green }}, {{ section.settings.rating_color.blue }};
+    {% endif %}
+  }
+  @media (max-width: 1023px) {
+    #shopify-section-{{ section.id }} .splide__arrows, #shopify-section-{{ section.id }} .splide__arrows--ltr {
+      display: none;
+    }
+  }
+  .is-active > .is-active\:opacity-100{opacity:1}
+  #shopify-section-{{ section.id }} .bg-\[rgb\(var\(--colors-line-and-border\)\)\] {
+    background: rgba(var(--colors-line-and-border), 0.2);
+    border-radius: 50%;
+  }
+  #shopify-section-{{ section.id }} .paginate-testimonial.is-active {
+    background: rgba(var(--colors-line-and-border));
+  }
+  #shopify-section-{{ section.id }}  .splide-progress {
+    {% if section.settings.heading_color.alpha != 0 %}
+        --colors-heading: {{ section.settings.heading_color.red }},{{ section.settings.heading_color.green }},{{ section.settings.heading_color.blue }};
+      {%  else %}
+        --colors-heading: var(--color-foreground);
+    {% endif %}
+    }
+    {% if enable_desktop_slider %}
+    @media (min-width: 1024px){
+        .otsb__root .splide__slide.preload-slide--{{ section.id }} {
+        {{ class_rtl }}: 16px;
+        width: calc(((100% + 16px) / {{ columns_desktop }}) - 16px);
+        }
+        }
+  {% endif %}
+
+  {% if swiper_on_mobile %}
+    @media (max-width: 1023px) {
+      .preload-slide--{{ section.id }} .x-splide-slide {
+        {{ class_rtl }}: 20px;
+        width: 100%
+      }
+    }
+  {% endif %}
+  .corner--{{ section.id }} {
+    border-radius: {{ section.settings.corner_image }}px;
+  }
+  .is-custom-icon svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: rgba(var(--colors-text), 1);
+  }
+  .otsb-rte li h1, .otsb-rte li h2, .otsb-rte li h3, .otsb-rte li h4, .otsb-rte li h5, .otsb-rte li h6 {
+    display: inline;
+  }
+  @media (min-width: 1024px){
+  .otsb__root .testimonial-no-slide-{{ section.id }} {
+    gap: 16px;
+  }
+}
+{%- endstyle -%}
+{% if request.design_mode %}
+  <style>
+    .otsb_nope {
+      display: none !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      visibility: hidden !important;
+      width: 0 !important;
+      opacity: 0 !important;
+    }
+    ._otsb_warning {
+      position: relative;
+      box-shadow: 0rem 0.1875rem 0.0625rem -0.0625rem rgba(26, 26, 26, 0.07);
+      border-radius: 1rem;
+    }
+    ._otsb_warning::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      box-shadow: 0.0625rem 0rem 0rem 0rem rgba(0, 0, 0, 0.13) inset,
+        -0.0625rem 0rem 0rem 0rem rgba(0, 0, 0, 0.13) inset, 0rem -0.0625rem 0rem 0rem rgba(0, 0, 0, 0.17) inset,
+        0rem 0.0625rem 0rem 0rem rgba(204, 204, 204, 0.5) inset;
+      border-radius: 1rem;
+      pointer-events: none;
+      mix-blend-mode: luminosity;
+    }
+  </style>
+  <div x-data="otsb_script_require" class="page-width" style="margin-top:36px;margin-bottom:36px">
+    <div class="_otsb_warning">
+      <div style="border-top-left-radius:1rem;border-top-right-radius:1rem;border:1px solid #fcaf0a;background:#fcb827;padding:1rem">
+        <div style="align-items:center;gap:8px;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between">
+          <div style="display:flex;gap:4px;flex-direction:row;flex-wrap:nowrap;justify-content:space-between">
+            <span style="display:block;height:20px;width:20px;max-height:100%;max-width:100%;margin:auto">
+              <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+                <path d="M10 6.75a.75.75 0 0 1 .75.75v3.5a.75.75 0 1 1-1.5 0v-3.5a.75.75 0 0 1 .75-.75Z"></path><path d="M11 13.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path><path fill-rule="evenodd" d="M10 3.5c-1.045 0-1.784.702-2.152 1.447a449.26 449.26 0 0 1-2.005 3.847l-.028.052a403.426 403.426 0 0 0-2.008 3.856c-.372.752-.478 1.75.093 2.614.57.863 1.542 1.184 2.464 1.184h7.272c.922 0 1.895-.32 2.464-1.184.57-.864.465-1.862.093-2.614-.21-.424-1.113-2.147-2.004-3.847l-.032-.061a429.497 429.497 0 0 1-2.005-3.847c-.368-.745-1.107-1.447-2.152-1.447Zm-.808 2.112c.404-.816 1.212-.816 1.616 0 .202.409 1.112 2.145 2.022 3.88a418.904 418.904 0 0 1 2.018 3.875c.404.817 0 1.633-1.212 1.633h-7.272c-1.212 0-1.617-.816-1.212-1.633.202-.408 1.113-2.147 2.023-3.883a421.932 421.932 0 0 0 2.017-3.872Z"></path>
+              </svg>
+            </span>
+            <h2 style="overflow-wrap:anywhere;word-break:normal;font-size:100%;font-weight:650;line-height:1.25;color:rgb(37,26,0)">
+              App Embeds Are Disabled
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div style="padding:1rem;color:rgb(37,26,0)">
+        <p>
+          To use this section, the app embeds of OT: Theme Sections must be enabled in the theme editor. Please follow
+          these steps to activate them:
+        </p>
+        <ul>
+          <li>In the left panel, click the last icon that says <b>“App embeds”</b>.</li>
+          <li>Enter <b>“OT”</b> on the search bar to quickly find and embed the apps from OT: Theme Sections.</li>
+          <li>
+            Turn on the Toggle buttons of "Section Builder Script" and "Section Builder Style", then click <b>Save</b>.
+          </li>
+        </ul>
+        <p>
+          Please refer to the User Guide
+          <a
+            href="https://support.omnithemes.com/blogs/ot-theme-sections-get-started/1-embed-app-to-shopify-theme"
+            target="_blank"
+            >here</a
+          >
+        </p>
+        <p>
+          For further support: feel free to contact us at
+          <a href="mailto:support@omnithemes.com">support@omnithemes.com</a>!
+        </p>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<div class="otsb_nope" x-data="otsb_script_1">
+  {% render 'otsb-section-divider' %}
+
+  <div class="section--{{ section.id }} color-item--{{ section.id }} pt-[{{ section.settings.top_padding_mobile }}px] md:pt-[{{ section.settings.top_padding }}px] pb-[{{ section.settings.bottom_padding_mobile }}px] md:pb-[{{ section.settings.bottom_padding }}px]">
+    <div class="testimonial carousel-mobile carousel-tablet otsb-page-width mx-auto pl-5 pr-5">
+      {% if section.settings.heading != blank %}
+        <{{ section.settings.heading_tag }} class="heading-{{ section.id }} otsb-h2 block page-width ml-auto mr-auto empty:hidden text-center">
+          {{- section.settings.heading | escape -}}
+        </{{ section.settings.heading_tag }}>
+      {% endif %}
+      <div
+        x-data
+        id="x-testimonial-{{ section.id }}"
+        class="color-heading--{{ section.id }} color-text-{{ section.id }}{% if enable_desktop_slider or swiper_on_mobile %} overflow-hidden group x-splide splide visible preload-slide--{{ section.id }}{% endif %}{% if enable_desktop_slider %} lg:pl-10 lg:pr-10{% endif %} mt-4 relative splider-testimonial{%- if section.settings.show_pagination %} pb-8{% endif %}"
+          x-intersect.once.margin.200px='
+            $store.otsb_xSplide.load($el, {
+              "updateOnMove": "true",
+              "mediaQuery": "min",
+              "progressBar": {{ section.blocks.size }},
+              "type": "loop",
+               {%- if section.settings.auto_play -%}
+                "autoplay": true,
+                "interval": {{ section.settings.change_slides_speed | times: 1000 }},
+              {%- endif %}
+              {%- if settings.lang_direction contains request.locale.iso_code %}
+                "direction": "rtl",
+              {%- endif %}
+              "breakpoints": {
+                300: {
+                  {% if swiper_on_mobile == false -%}
+                    "destroy": true,
+                  {%- endif %}
+                  "perPage": 1,
+                  "perMove": 1,
+                  "gap": 20,
+                },
+                1024: {
+                  {% if enable_desktop_slider -%}
+                    "destroy": false,
+                  {%- else -%}
+                    "destroy": true,
+                  {%- endif %}
+                  "perPage": {{ columns_desktop_slide }},
+                  "perMove": 1,
+                  "focus": "{{ focus }}",
+                  "gap": "16px",
+                }
+              },
+              "classes": {
+                {%- if section.settings.show_arrow and enable_desktop_slider -%}
+                  "arrows": "splide__arrows block",
+                {%- else -%}
+                  "arrows": "splide__arrows otsb-hidden",
+                {%- endif -%}
+                {%- if section.settings.show_pagination %}
+                  "pagination": "gap-3 flex-nowrap absolute bottom-0 left-1/2 -translate-x-1/2{% if swiper_on_mobile %} flex{% else %} otsb-hidden{% endif %}{% if enable_desktop_slider %} md:flex{% else %} md:hidden{% endif %}",
+                  "page": "paginate-testimonial duration-200 rounded-full w-3 flex items-center bg-[rgb(var(--colors-line-and-border))]{% if swiper_on_mobile %} h-3{% else %} h-0{% endif %}{% if enable_desktop_slider %} md:h-3{% else %} md:h-0{% endif %}"
+                {% else %}
+                  "pagination": "otsb-hidden"
+                {%- endif %}
+              }
+            })
+          '
+      >
+        <div
+          class="splide__track lg:pt-0.5 lg:pb-0.5{% if enable_desktop_slider %} md:cursor-grab{% endif %}{% if swiper_on_mobile %} pl-5 pr-5 lg:pl-0 lg:pr-0{% endif %}"
+        >
+          {% if section.settings.show_arrow and enable_desktop_slider %}
+            {% style %}
+              #shopify-section-{{ section.id }} button.otsb-button-arrow {
+              {%  if section.settings.slider_button_color.alpha != 0 %}
+                background-color: rgba({{ section.settings.slider_button_color.red }}, {{ section.settings.slider_button_color.green }}, {{ section.settings.slider_button_color.blue }}, 0.3);
+                color: {{ section.settings.slider_button_color }};
+              {%  else %}
+                background-color: rgba(var(--color-foreground), 0.3);
+                color: rgba(var(--color-foreground));
+              {% endif %}
+                box-shadow: none;
+                border-radius: 50px;
+              }
+
+              #shopify-section-{{ section.id }} button.otsb-button-arrow:hover {
+              {%  if section.settings.slider_button_hover_text_color.alpha != 0 %}
+                color: {{ section.settings.slider_button_hover_text_color }};
+              {%  else %}
+                color: rgba(var(--color-foreground));
+              {% endif %}
+              {%  if section.settings.slider_button_hover_color.alpha != 0 %}
+                background: {{ section.settings.slider_button_hover_color }};
+              {%  else %}
+                background-color: rgba(var(--color-foreground), 0.7);
+              {% endif %}
+              }
+              @media (min-width: 1024px) {
+              #shopify-section-{{ section.id }} .splide__arrows .otsb-button-arrow {
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+              }
+              #shopify-section-{{ section.id }} .group .splide__arrow--prev {
+                transform: translateY(-50%) rotate(90deg);
+              }
+              #shopify-section-{{ section.id }} .group .splide__arrow--next {
+                transform: translateY(-50%) rotate(-90deg);
+              }
+              #shopify-section-{{ section.id }} .group:hover .splide__arrows .otsb-button-arrow {
+                opacity: 0.5;
+              }
+              #shopify-section-{{ section.id }} .group:hover .splide__arrow--prev {
+                transform: translateY(-50%) translateX(5px) rotate(90deg);
+              }
+              #shopify-section-{{ section.id }} .group:hover .splide__arrow--next {
+                transform: translateY(-50%) translateX(-5px) rotate(-90deg);
+              }
+              }
+            {% endstyle %}
+            <div class="splide__arrows {%  unless section.settings.show_arrow  %} hidden otsb-hidden{% endunless %}">
+              <button
+                class="splide__arrow splide__arrow--prev otsb-button-arrow group-hover:lg:block absolute top-1/2 -mt-6 p-4 rounded-full none_border z-10 w-14 h-14 after:text-[20px] rtl:right-0 rtl:-rotate-90 rtl:left-auto left-0 rotate-90 duration-200 opacity-60 hover:opacity-100 disabled:cursor-not-allowed transition-all ease-in-out rtl:lg:translate-x-full lg:-translate-x-full disabled:opacity-30"
+                aria-label="previous slide"
+              >
+                {% render 'otsb-icon-alls', icon: 'icon-caret' %}
+              </button>
+              <button
+                class="splide__arrow splide__arrow--next otsb-button-arrow  group-hover:lg:block absolute top-1/2 -mt-6 p-4 rounded-full none_border z-10 w-14 h-14 after:text-[20px] rtl:left-0 rtl:rotate-90 rtl:right-auto right-0 -rotate-90 duration-200 opacity-60 hover:opacity-100 disabled:cursor-not-allowed transition-all ease-in-out rtl:lg:-translate-x-full lg:translate-x-full disabled:opacity-30"
+                aria-label="next slide"
+              >
+                {% render 'otsb-icon-alls', icon: 'icon-caret' %}
+              </button>
+            </div>
+          {% endif %}
+          <div
+            class="
+              {%- if enable_desktop_slider == false -%}testimonial-no-slide-{{ section.id }} lg:otsb-grid lg:grid-cols-{{ columns_desktop_slide }}{% else %}lg:flex lg:w-full lg:gap-0{% endif %} gap-{{ section.id }} splide__list
+              {% if swiper_on_mobile %} flex w-full{% else %} spacing--{{ section.id }}-splide otsb-grid grid-cols-{{ columns_mobile }} md:otsb-grid gap-mobile-{{ section.id }}{%- if enable_desktop_slider %} lg:grid-cols-none lg:flex{% endif %}{% endif %}
+            "
+          >
+            {%- for block in section.blocks -%}
+              <div
+                x-slide-index="{{ forloop.index | minus: 1 }}"
+                id="Slide-{{ block.id }}-{{ forloop.index }}"
+                class="
+                  logo-{{ block.id }} relative relative overflow-hidden md:w-auto
+                  {%- if enable_desktop_slider or swiper_on_mobile or enable_tablet_slider %} splide__slide x-splide-slide preload-slide--{{ section.id }}{% endif -%}
+                  {%  unless enable_desktop_slider %} spacing-desktop-{{ section.id }} {% endunless %}
+                  {%- unless swiper_on_mobile %}{% if section.settings.columns_mobile == "1" %} w-full{% elsif section.settings.columns_mobile == "2" %} nothing {% endif %}{% endunless %}
+                  {%- if section.settings.show_border %} h-full border pt-4 pb-4 pr-5 pl-5{% if section.settings.columns_desktop <= 6 %} lg:pl-10 lg:pr-10{% else %} lg:pl-7 lg:pr-7{% endif %}{% endif %}
+                "
+                {{ block.shopify_attributes }}
+              >
+                <div class="scale-item{% if enable_desktop_slider %} is-active:opacity-100 is-active:scale-100 is-active:duration-300 ease-in-out splide__slide--clone:opacity-60 duration-300{% endif %} origin-center bg-item--{{ section.id }} h-full w-full flex flex-col justify-center{% if columns_desktop > 1 %} multiple{% else %} md:grid md:grid-cols-2 md:grid-rows-[auto auto] md:ml-auto md:mr-auto {% if section.settings.show_author_image %} md:grid-cols-5{% else %} md:grid-cols-1{% endif %}{% endif %}{% if settings.edges_type == 'rounded_corners' %} rounded-[10px]{% endif %}">
+                  <div class="text-{{ text_alignment }} pl-5 pr-5{% if columns_desktop == 1 %} md:pl-8 lg:pl-14 md:pr-8 lg:pr-16 md:flex md:flex-col md:justify-end md:col-span-3{% else %} md:mt-8 mt-4 md:pl-10 md:pr-10{% endif %}">
+                    <div class="{% if block.settings.custom_icon != blank %}is-custom-icon{% endif %} h-6 md:mb-2{% if columns_desktop == 1 %} mt-5{% if section.settings.show_author_image %} md:mt-8{% endif %}{% else %} md:mb-1{% endif %} flex justify-{{ section.settings.text_alignment }}">
+                      {% if block.settings.custom_icon == blank %}
+                        {% render 'otsb-icon-liststar', icon: block.settings.icon_star %}
+                      {% else %}
+                        {{ block.settings.custom_icon }}
+                      {% endif %}
+                    </div>
+                    {% if block.settings.title != blank %}
+                      <h3 class="h2 title-size--{{ section.id }} pt-0.5 md:pt-2 pb-2{% if columns_desktop == 1 %} md:pt-0{% if section.settings.show_author_image %} md:pb-3.5{% else %} md:pb-1{% endif %}{% endif %}">
+                        {{ block.settings.title | escape }}
+                      </h3>
+                    {% endif %}
+                    <div class="otsb-rte text-[rgb(var(--colors-text))] pb-5">
+                      {{ block.settings.text }}
+                    </div>
+                  </div>
+                  {% if section.settings.show_author_image
+                    and section.settings.author_image == 'left'
+                    and columns_desktop > 1
+                  %}
+                    <div class="flex pl-5 pr-5 md:pl-10 md:pr-10 gap-x-2.5 items-center mb-6 md:mb-6 mt-2.5 md:mt-3.5{% if section.settings.text_alignment == 'end' %} justify-end text-right{% else %} justify-{{ section.settings.text_alignment }}{% endif %}">
+                      <div class="relative inline-block aspect-square w-16 h-16 isolate overflow-hidden{% if section.settings.image_ratio == 'round' %} rounded-full{% endif %} corner--{{ section.id }} min-w-12 max-w-[530px] text-[#acacac]{% if block.settings.author_image == blank %} bg-[#c9c9c9]{% endif %}">
+                        {% if block.settings.author_image != blank %}
+                          <img
+                            srcset="
+                              {{ block.settings.author_image | image_url: width: 150 }} 150w,
+                              {{ block.settings.author_image | image_url: width: 375 }} 375w
+                            "
+                            src="{{ block.settings.author_image | image_url: width: 375 }}"
+                            alt="{{ block.settings.author_image.alt | escape }}"
+                            loading="lazy"
+                            sizes="(min-width: 1024px) {% if columns_desktop == 1 %} 375px{% else %} 150px{% endif %}, 150px"
+                            width="{{ block.settings.author_image.width }}"
+                            height="{{ block.settings.author_image.height }}"
+                            class="h-full w-full{% if section.settings.image_ratio == 'round' %} rounded-full{% endif %} object-cover absolute image-hover{% if columns_desktop == 1 %} absolute top-0{% endif %}"
+                            style="object-position: {{ block.settings.author_image.presentation.focal_point }};"
+                          >
+                        {% else %}
+                          {% render 'otsb-icon-placeholder', icon: 'icon-image', class: 'w-full h-full absolute' %}
+                        {% endif %}
+                      </div>
+                      <div>
+                        {% if block.settings.author != blank %}
+                          <p class="author-{{ section.id }} h4 block">{{ block.settings.author | escape }}</p>
+                        {% endif %}
+                        {% if block.settings.author_note != blank %}
+                          <div class="text-[rgb(var(--colors-text))] author-note--{{ section.id }} pt-1 block otsb-rte p-break-words opacity-70 m-0">
+                            {{ block.settings.author_note }}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% else %}
+                    {% if section.settings.show_author_image %}
+                      <div class="pt-3.5 pb-2 w-full pl-5 pr-5 flex items-center justify-{{ section.settings.text_alignment }}{% if columns_desktop == 1 %} {% if section.settings.image_ratio == 'round' %} otsb-pr-{{ section.id }}{% endif %} -md:justify-center md:min-h-[350px] md:pt-14 md:pb-14 md:pl-0 md:pr-6 lg:pr-16 dark:lg:pr-16 dark:md:pr-6 dark:md:pl-0 md:row-span-2 md:col-span-2{% else %} md:pt-3.5 md:pb-2 md:pl-10 md:pr-10 dark:md:pl-10 dark:md:pr-10{% endif %}">
+                        <div class="relative overflow-hidden inline-block aspect-square w-20 h-20 isolate{% if section.settings.image_ratio == 'round' %} rounded-full{% endif %} corner--{{ section.id }} max-w-[530px] text-[#acacac]{% if block.settings.author_image == blank %} bg-[#c9c9c9]{% endif %}{% if columns_desktop == 1 %} md:w-full relative{% if section.settings.image_ratio != 'round' %} desktop-height-{{ section.id }}{% else %} md:pb-[100%]{% endif %}{% else %} md:w-40 md:h-40{% endif %}">
+                          {% if block.settings.author_image != blank %}
+                            <img
+                              srcset="
+                                {{ block.settings.author_image | image_url: width: 150 }} 150w,
+                                {{ block.settings.author_image | image_url: width: 375 }} 375w
+                              "
+                              src="{{ block.settings.author_image | image_url: width: 375 }}"
+                              alt="{{ block.settings.author_image.alt | escape }}"
+                              loading="{% if section.settings.is_lazyload %}lazy{%  else %}eager{% endif %}"
+                              sizes="(min-width: 768px) {% if columns_desktop == 1 %} 375px{% else %} 150px{% endif %}, 150px"
+                              width="{{ block.settings.author_image.width }}"
+                              height="{{ block.settings.author_image.height }}"
+                              class="h-full w-full{% if section.settings.image_ratio == 'round' %} rounded-full{% endif %} object-cover absolute image-hover{% if columns_desktop == 1 %} absolute top-0{% endif %}"
+                              style="object-position: {{ block.settings.author_image.presentation.focal_point }};"
+                            >
+                          {% else %}
+                            {% render 'otsb-icon-placeholder', icon: 'icon-image', class: 'w-full h-full absolute' %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endif %}
+                    <div class="{% if is_rtl %}rtl {% endif %}mt-2 mb-4{% if section.settings.show_author_image %} lg:mb-8{% endif %} text-{{ text_alignment }} pl-5 pr-5{% if columns_desktop == 1 %}{% if section.setitngs.show_author_image %} md:mb-6 md:mt-5{% else %} md:mb-4 md:mt-1{% endif %} md:pl-8 lg:pl-14 md:pr-8 lg:pr-16 dark:lg:pr-16 dark:md:pr-8 dark:lg:pl-14 dark:md:pl-8 md:col-span-3{% else %} md:mt-1.5 md:pl-10 md:pr-10 dark:md:pl-10 dark:md:pr-10{% endif %}">
+                      {% if block.settings.author != blank %}
+                        <p class="author-{{ section.id }} text-{{ text_alignment }} h4 block">
+                          {{ block.settings.author | escape }}
+                        </p>
+                      {% endif %}
+                      {% if block.settings.author_note != blank %}
+                        <div class="text-[rgb(var(--colors-text))] author-note--{{ section.id }} pt-1 pb-1 text-{{ text_alignment }} block otsb-rte opacity-70">
+                          {{ block.settings.author_note }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- if swiper_on_mobile -%}
+          {% unless section.settings.show_pagination %}
+            {% style %}
+              @media screen and (max-width: 912px) {
+                .otsb__root .splide-progress-bar {
+                  display: block;
+                  transition: all 400ms ease;
+                  background: rgba(var(--colors-heading));
+                }
+              }
+              .otsb__root .splide-progress {
+                background: rgba(var(--colors-line-and-border), 0.2);
+              }
+            {% endstyle %}
+            <div class="flex items-center gap-5 mt-2.5 w-full lg:hidden ml-auto mr-auto">
+              <div class="splide-progress inline-block grow rounded-md">
+                {% liquid
+                  assign width_bar = 1.0 | divided_by: section.blocks.size
+                %}
+                <div class="splide-progress-bar rounded-md" style="width: {{ width_bar | times: 100 }}%;"></div>
+              </div>
+            </div>
+          {% endunless %}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>

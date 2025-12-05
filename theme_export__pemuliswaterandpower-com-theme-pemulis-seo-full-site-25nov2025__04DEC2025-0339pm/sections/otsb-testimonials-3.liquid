@@ -1,0 +1,421 @@
+{% render 'otsb-testimonials-base' %}
+{% schema %}
+{
+  "name": "OT: Testimonials #3",
+  "tag": "section",
+  "class": "otsb__root section section-testimonial x-section",
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "Heading size",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "default": "h2",
+      "label": "Heading tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "p"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Text alignment"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        },
+        {
+          "value": "3",
+          "label": "3 columns"
+        }
+      ],
+      "default": "3",
+      "label": "Testimonial items view"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Next/Previous arrows",
+      "default": false,
+      "info": "Show navigation arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Show pagination",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_play",
+      "label": "Enable auto-play",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author_image",
+      "label": "Show image",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "author_image",
+      "options": [
+        {
+          "value": "top",
+          "label": "Image top"
+        },
+        {
+          "value": "left",
+          "label": "Image left"
+        }
+      ],
+      "default": "top",
+      "info": "Image alignment is flexible in multiple-view mode. Desktop single-view images are always top-aligned, while mobile images are left-aligned.",
+      "label": "Image alignment"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "100",
+          "label": "Square"
+        },
+        {
+          "value": "round",
+          "label": "Rounded"
+        }
+      ],
+      "default": "round",
+      "label": "Image style"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_lazyload",
+      "label": "Lazy-load images",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "corner_image",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Corner radius",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 200,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 300,
+      "info": "Height adjustments are available for single-view, square images only.",
+      "label": "Desktop height"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color_light",
+      "default": "#FFFFFF",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "item_background_color_light",
+      "label": "Item background",
+      "default": "#F2F2F2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "default": "#212020",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "heading_and_title_light",
+      "default": "#212020",
+      "label": "Title"
+    },
+    {
+      "type": "color",
+      "id": "item_text_color_light",
+      "default": "#444444",
+      "label": "Item text"
+    },
+    {
+      "type": "color",
+      "id": "rating_color",
+      "default": "#E99D0B",
+      "label": "Rating stars"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "default": "#848484",
+      "label": "Line and border"
+    },
+    {
+      "type": "color",
+      "id": "slider_button_color",
+      "default": "#000000",
+      "label": "Slider button"
+    },
+    {
+      "type": "color",
+      "id": "slider_button_hover_color",
+      "default": "#000000",
+      "label": "Slider button hover"
+    },
+    {
+      "type": "color",
+      "id": "slider_button_hover_text_color",
+      "default": "#FFFFFF",
+      "label": "Slider button hover text"
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section_divider",
+      "default": false,
+      "label": "Show section divider"
+    },
+    {
+      "type": "range",
+      "id": "top_padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_section_divider_mobile",
+      "default": false,
+      "label": "Show section divider"
+    },
+    {
+      "type": "range",
+      "id": "top_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_star",
+          "options": [
+            {
+              "value": "quote",
+              "label": "Quote"
+            },
+            {
+              "value": "1_star",
+              "label": "1 star"
+            },
+            {
+              "value": "2_star",
+              "label": "2 stars"
+            },
+            {
+              "value": "3_star",
+              "label": "3 stars"
+            },
+            {
+              "value": "4_star",
+              "label": "4 stars"
+            },
+            {
+              "value": "5_star",
+              "label": "5 stars"
+            }
+          ],
+          "default": "5_star",
+          "label": "Icon"
+        },
+        {
+          "type": "html",
+          "id": "custom_icon",
+          "label": "Custom icon (SVG code)",
+          "info": "For assistance with custom SVG code or fixing issues that arise from custom SVG code, please [contact our support](https://omnithemes.com/contact/)."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Testimonials",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>\"Add customer reviews and testimonials to showcase your store's happy customers\"</p>",
+          "label": "Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "default": "Add a caption",
+          "label": "Caption"
+        },
+        {
+          "type": "richtext",
+          "id": "author_note",
+          "label": "Additional text",
+          "default": "<p>New York City, NY</p>",
+          "info": "Used to show reviewer's address, order or product link."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "OT: Testimonials #3",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

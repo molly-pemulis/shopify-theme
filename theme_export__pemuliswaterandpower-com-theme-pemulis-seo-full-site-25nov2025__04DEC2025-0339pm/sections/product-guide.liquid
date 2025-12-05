@@ -1,0 +1,96 @@
+<!-- product-guide.liquid -->
+{% schema %}
+{
+  "name": "Product Guide",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "model",
+      "name": "Product Model",
+      "settings": [
+        {
+          "type": "text",
+          "id": "model_name",
+          "label": "Model Name"
+        },
+        {
+          "type": "richtext",
+          "id": "model_description",
+          "label": "Model Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "model_image",
+          "label": "Model Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "heading_image",
+          "label": "Heading Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Guide",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="product-guide">
+  <h1>Product Guide</h1>
+
+  {% for block in section.blocks %}
+    <div class="product-model">
+      {% if block.settings.heading_image %}
+        <img src="{{ block.settings.heading_image | img_url: 'medium' }}" alt="{{ block.settings.model_name }}" class="heading-image" />
+      {% endif %}
+      <h2>{{ block.settings.model_name }}</h2>
+      {% if block.settings.model_image %}
+        <img src="{{ block.settings.model_image | img_url: 'medium' }}" alt="{{ block.settings.model_name }}" />
+      {% endif %}
+      <div class="model-description">{{ block.settings.model_description }}</div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .product-guide {
+    margin: 20px 0;
+    text-align: center; /* Center text for the entire product guide */
+  }
+
+  .product-model {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  h1 {
+    color: #333;
+    margin-bottom: 20px; /* Add bottom margin for spacing */
+  }
+
+  h2 {
+    color: #333;
+    margin: 15px 0; /* Add vertical margins for spacing */
+  }
+
+  .model-description {
+    margin: 10px 0;
+    color: #555;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .heading-image {
+    margin-bottom: 10px; /* Margin specifically for heading images */
+  }
+</style>

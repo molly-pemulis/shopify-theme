@@ -1,0 +1,488 @@
+{%- liquid
+  assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ','
+  assign current_lang = localization.language.iso_code | split: '-' | first
+  if rtl_langs contains current_lang
+    assign lang_dir = 'rtl'
+  else
+    assign lang_dir = 'ltr'
+  endif
+-%}
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ lang_dir }}">
+  <head>
+    {%- render 'ecom_header' -%}
+
+    {%- render 'doc-head-core' -%}
+    {%- render 'doc-head-social' -%}
+
+    {%- liquid
+      assign base_font = settings.type_base_font
+      assign base_font_bold = base_font | font_modify: 'weight', 'bolder'
+      assign base_font_medium = base_font | font_modify: 'weight', '500'
+      assign base_font_italic = base_font | font_modify: 'style', 'italic'
+      assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic'
+      assign heading_font = settings.type_heading_font
+      assign logo_font = settings.type_logo_font
+      assign nav_font = settings.type_nav_font
+      assign nav_font_600 = nav_font | font_modify: 'weight', '600'
+    -%}
+
+    <style>
+      {{- base_font | font_face: font_display: 'fallback' -}}
+      {{- base_font_bold | font_face: font_display: 'fallback' -}}
+      {{- base_font_medium | font_face: font_display: 'fallback' -}}
+      {{- base_font_italic | font_face: font_display: 'fallback' -}}
+      {{- base_font_bold_italic | font_face: font_display: 'fallback' -}}
+      {{- heading_font | font_face: font_display: 'fallback' -}}
+      {{- logo_font | font_face: font_display: 'fallback' -}}
+      {{- nav_font | font_face: font_display: 'fallback' -}}
+      {{- nav_font_600 | font_face: font_display: 'fallback' -}}
+
+      {%- render 'doc-head-styles' -%}
+    </style>
+
+    {{ 'main.css' | asset_url | stylesheet_tag: preload: true }}
+
+    {%- if settings.swatch_source == 'theme' and settings.swatch_value_list != blank -%}
+      <link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}"></noscript>
+    {%- endif -%}
+
+    {%- unless base_font.system? -%}
+      <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless heading_font.system? -%}
+      <link rel="preload" as="font" href="{{ heading_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '685180770698437');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=685180770698437&ev=PageView&noscript=1"
+      >
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+      window.theme = {
+        info: {
+          name: 'Symmetry',
+          version: '7.3.0'
+        },
+        device: {
+          hasTouch: window.matchMedia('(any-pointer: coarse)').matches,
+          hasHover: window.matchMedia('(hover: hover)').matches
+        },
+        mediaQueries: {
+          md: '(min-width: 768px)',
+          productMediaCarouselBreak: '(min-width: 1041px)'
+        },
+        routes: {
+          base: '{{ shop.url }}',
+          cart: '{{ routes.cart_url }}',
+          cartAdd: '{{ routes.cart_add_url }}.js',
+          cartUpdate: '{{ routes.cart_update_url }}.js',
+          predictiveSearch: '{{ routes.predictive_search_url }}'
+        },
+        strings: {
+          cartTermsConfirmation: {{ 'cart.terms.confirmation' | t | json }},
+          cartItemsQuantityError: {{ 'cart.items.quantity_error' | t: quantity: '[QUANTITY]' | json }},
+          generalSearchViewAll: {{ 'general.search.view_all' | t | json }},
+          noStock: {{ 'products.variant.no_stock' | t | json }},
+          noVariant: {{ 'products.variant.non_existent' | t | json }},
+          productsProductChooseA: {{ 'products.product.choose_a' | t | json }},
+          generalSearchPages: {{ 'general.search.pages' | t | json }},
+          generalSearchNoResultsWithoutTerms: {{ 'general.search.no_results_without_terms' | t | json }},
+          shippingCalculator: {
+            singleRate: {{ 'cart.shipping_calculator.single_rate' | t | json }},
+            multipleRates: {{ 'cart.shipping_calculator.multiple_rates' | t | json }},
+            noRates: {{ 'cart.shipping_calculator.no_rates' | t | json }}
+          }
+        },
+        settings: {
+          moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+          cartType: {{ settings.cart_type | json }},
+          afterAddToCart: {{ settings.after_add_to_cart | json }},
+          quickbuyStyle: {{ settings.quickbuy_style | json }},
+          externalLinksNewTab: {{ settings.external_links_new_tab | json }},
+          internalLinksSmoothScroll: {{ settings.internal_links_smooth_scroll | json }}
+        }
+      }
+
+      theme.inlineNavigationCheck = function() {
+        var pageHeader = document.querySelector('.pageheader'),
+            inlineNavContainer = pageHeader.querySelector('.logo-area__left__inner'),
+            inlineNav = inlineNavContainer.querySelector('.navigation--left');
+        if (inlineNav && getComputedStyle(inlineNav).display != 'none') {
+          var inlineMenuCentered = document.querySelector('.pageheader--layout-inline-menu-center'),
+              logoContainer = document.querySelector('.logo-area__middle__inner');
+          if(inlineMenuCentered) {
+            var rightWidth = document.querySelector('.logo-area__right__inner').clientWidth,
+                middleWidth = logoContainer.clientWidth,
+                logoArea = document.querySelector('.logo-area'),
+                computedLogoAreaStyle = getComputedStyle(logoArea),
+                logoAreaInnerWidth = logoArea.clientWidth - Math.ceil(parseFloat(computedLogoAreaStyle.paddingLeft)) - Math.ceil(parseFloat(computedLogoAreaStyle.paddingRight)),
+                availableNavWidth = logoAreaInnerWidth - Math.max(rightWidth, middleWidth) * 2 - 40;
+            inlineNavContainer.style.maxWidth = availableNavWidth + 'px';
+          }
+
+          var firstInlineNavLink = inlineNav.querySelector('.navigation__item:first-child'),
+              lastInlineNavLink = inlineNav.querySelector('.navigation__item:last-child');
+          if (lastInlineNavLink) {
+            var inlineNavWidth = null;
+            if(document.querySelector('html[dir=rtl]')) {
+              inlineNavWidth = firstInlineNavLink.offsetLeft - lastInlineNavLink.offsetLeft + firstInlineNavLink.offsetWidth;
+            } else {
+              inlineNavWidth = lastInlineNavLink.offsetLeft - firstInlineNavLink.offsetLeft + lastInlineNavLink.offsetWidth;
+            }
+            if (inlineNavContainer.offsetWidth >= inlineNavWidth) {
+              pageHeader.classList.add('pageheader--layout-inline-permitted');
+              var tallLogo = logoContainer.clientHeight > lastInlineNavLink.clientHeight + 20;
+              if (tallLogo) {
+                inlineNav.classList.add('navigation--tight-underline');
+              } else {
+                inlineNav.classList.remove('navigation--tight-underline');
+              }
+            } else {
+              pageHeader.classList.remove('pageheader--layout-inline-permitted');
+            }
+          }
+        }
+      };
+
+      theme.setInitialHeaderHeightProperty = () => {
+        const section = document.querySelector('.section-header');
+        if (section) {
+          document.documentElement.style.setProperty('--theme-header-height', Math.ceil(section.clientHeight) + 'px');
+        }
+      };
+    </script>
+
+    <script src="{{ 'main.js' | asset_url }}" defer></script>
+
+    {%- if request.design_mode -%}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer data-contact="{{ shop.email | escape }}"></script>
+    {%- endif -%}
+
+    {% if settings.animations_enabled_desktop %}
+      <script src="{{ 'animate-on-scroll.js' | asset_url }}" defer></script>
+      {{ 'animate-on-scroll.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
+
+    {{ content_for_header }}
+
+    {%- if settings.custom_html_head -%}
+      <!-- CC Custom Head Start -->
+      {{- settings.custom_html_head -}}
+      <!-- CC Custom Head End -->
+    {%- endif -%}
+
+    {%- comment -%}
+      SEO: Global Organization schema
+    {%- endcomment -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }},
+      "sameAs": [
+        "https://www.instagram.com/pemuliswaterandpower"
+      ]
+    }
+    </script>
+
+    {% if template == 'index' %}
+      {%- comment -%}
+        SEO: WebSite with SearchAction
+      {%- endcomment -%}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": {{ shop.url | json }},
+        "name": {{ shop.name | json }},
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ shop.url }}/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+      </script>
+    {% endif %}
+
+    {%- comment -%}
+      LocalBusiness schemas – update the "image" URLs to real assets when you can.
+    {%- endcomment -%}
+
+    {% if template == 'index' %}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://pemuliswaterandpower.com/#business",
+        "name": "Pemulis Water & Power",
+        "image": "https://pemuliswaterandpower.com/path-to-your-logo-or-image.jpg",
+        "url": "https://pemuliswaterandpower.com",
+        "telephone": "(510) 221-6855",
+        "description": "Pemulis Water & Power is San Francisco’s premium surf and motorsport boutique surf shop, offering curated surfboards, surf gear, and vintage moto apparel in the Outer Sunset near Ocean Beach.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4051 Judah St",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94122",
+          "addressCountry": "US"
+        },
+        "openingHours": ["Mo-Fr 13:00-18:00", "Sa-Su 11:00-16:00"],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "37.7599",
+          "longitude": "-122.5098"
+        },
+        "sameAs": [
+          "https://www.instagram.com/pemuliswaterandpower"
+        ]
+      }
+      </script>
+    {% endif %}
+
+    {% if template == 'page.obsf-store' or (template == 'page' and page.handle == 'obsf-store') %}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://pemuliswaterandpower.com/pages/obsf-store/#business",
+        "name": "Pemulis Water & Power - Ocean Beach Surf Shop",
+        "image": "https://pemuliswaterandpower.com/path-to-your-storefront-image.jpg",
+        "url": "https://pemuliswaterandpower.com/pages/obsf-store",
+        "telephone": "(510) 221-6855",
+        "description": "Visit Pemulis Water & Power’s Ocean Beach surf shop at 4051 Judah St for rare surfboards, Gato Heroi boards, premium surf gear, and expert advice in San Francisco’s Outer Sunset.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4051 Judah St",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94122",
+          "addressCountry": "US"
+        },
+        "openingHours": ["Mo-Fr 13:00-18:00", "Sa-Su 11:00-16:00"],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "37.7599",
+          "longitude": "-122.5098"
+        },
+        "sameAs": [
+          "https://www.instagram.com/pemuliswaterandpower"
+        ]
+      }
+      </script>
+    {% endif %}
+
+    {% if template == 'page.about-us' or (template == 'page' and page.handle == 'about-us') %}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://pemuliswaterandpower.com/pages/about-us/#business",
+        "name": "Pemulis Water & Power",
+        "image": "https://pemuliswaterandpower.com/path-to-your-story-image.jpg",
+        "url": "https://pemuliswaterandpower.com/pages/about-us",
+        "telephone": "(510) 221-6855",
+        "description": "Learn about Pemulis Water & Power, a San Francisco surf shop and motorsport boutique founded by Molly Thomas in the Outer Sunset. We offer rare surfboards, vintage moto gear, and a deep connection to the local Ocean Beach community.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4051 Judah St",
+          "addressLocality": "San Francisco",
+          "addressRegion": "CA",
+          "postalCode": "94122",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.instagram.com/pemuliswaterandpower"
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Molly Thomas"
+        }
+      }
+      </script>
+    {% endif %}
+
+  </head>
+
+  <body
+    class="
+      template-{{ template | split: '.' | first | handle }}
+      {%- if template.suffix %} template-suffix-{{ template.suffix }}{% endif -%}
+      {%- if settings.swatch_source == 'native' %} swatch-source-native swatch-method-swatches swatch-style-{{ settings.swatch_style }}
+      {%- elsif settings.swatch_source == 'theme' %} swatch-source-theme swatch-method-{{ settings.swatch_method }} swatch-style-{{ settings.swatch_style }}{% endif -%}
+      {%- if settings.animations_enabled_desktop %} cc-animate-enabled{% endif -%}
+    "
+  >
+    <a class="skip-link visually-hidden" href="#content" data-cs-role="skip">
+      {{- 'accessibility.skip_to_content' | t -}}
+    </a>
+
+    {%- sections 'header-group' -%}
+
+    <main id="content" role="main">
+      <div class="container cf">
+        {{ content_for_layout }}
+      </div>
+    </main>
+
+    {%- if request.path != '/challenge' -%}
+      <div id="pagefooter">
+        {%- sections 'footer-group' -%}
+      </div>
+
+        {%- sections 'overlay-group' -%}
+    {%- endif -%}
+
+    <a href="#" class="page-shade" aria-label="{{ 'general.navigation.close' | t }}"></a>
+    <div class="overlay fixed top-0 right-0 bottom-0 left-0 js-overlay"></div>
+
+    {%- if settings.after_add_to_cart == 'notification' -%}
+      <script src="{{ 'added-notification.js' | asset_url }}" defer></script>
+      <template id="AddedNotification">
+        <added-notification class="added-notification added-notification--hidden">
+          <div class="added-notification__message-area">
+            <div class="added-notification__message-title"></div>
+            <div class="added-notification__message-text underline-child">
+              {{ 'products.product.added_to_cart_with_link_html' | t: cart_url: routes.cart_url }}
+            </div>
+          </div>
+          <div class="added-notification__button-area">
+            <button
+              type="button"
+              class="added-notification__close"
+              aria-label="{{ 'general.icon_labels.close' | t | escape }}
+            ">
+              {%- render 'icon-close' -%}
+            </button>
+          </div>
+        </added-notification>
+      </template>
+    {%- endif -%}
+
+    {%- render 'ecom_footer' -%}
+
+    {%- comment -%}
+      Collection description: "About these boards" expandable styling
+      (HTML/Liquid structure is in sections/main-collection.liquid)
+    {%- endcomment -%}
+    <style>
+      .template-collection .collection-description-wrapper {
+        max-width: 780px;
+        margin: 0 auto 32px;
+      }
+
+      .template-collection .collection-description-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0;
+        border: 0;
+        background: none;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .template-collection .collection-description-toggle__label {
+        border-bottom: 1px solid #000;
+        padding-bottom: 2px;
+      }
+
+      .template-collection .collection-description-toggle__icon {
+        font-size: 0.8rem;
+        transform-origin: center;
+        transition: transform 160ms ease;
+      }
+
+      .template-collection .collection-description-wrapper.is-open
+      .collection-description-toggle__icon {
+        transform: rotate(180deg);
+      }
+
+      .template-collection .collection-description-teaser {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: #555;
+      }
+
+      .template-collection .collection-description-full {
+        margin-top: 10px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: #4a4a4a;
+        background: #fafafa;
+        border-radius: 6px;
+        border: 1px solid #e5e5e5;
+        display: none;
+      }
+
+      .template-collection .collection-description-full .rte p:last-child {
+        margin-bottom: 0;
+      }
+
+      .template-collection .collection-description-wrapper.is-open
+      .collection-description-full {
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .template-collection .collection-description-wrapper {
+          margin-bottom: 24px;
+          padding: 0 10px;
+        }
+
+        .template-collection .collection-description-full {
+          padding: 10px 12px;
+          font-size: 0.85rem;
+        }
+
+        .template-collection .collection-description-teaser {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener('click', function (event) {
+        var toggle = event.target.closest('[data-collection-desc-toggle]');
+        if (!toggle) return;
+
+        var wrapper = toggle.closest('[data-collection-desc-wrapper]');
+        if (!wrapper) return;
+
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        wrapper.classList.toggle('is-open', !expanded);
+      });
+    </script>
+  </body>
+</html>
