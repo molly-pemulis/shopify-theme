@@ -1,1 +1,116 @@
-{"type":"header","name":"Header Group","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement-1":{"type":"announcement","settings":{"text":"<a href=\"\/pages\/join-the-club\" title=\"Join The Club\">Sign up for our newsletter <\/a> to get access to new surfboards, sales, events and more!","show_countdown":false,"hide_on_end":false,"end_date":"","end_time":"","number_font":"base","countdown_separator":"box","use_custom_colors":false,"bg_color":"#202020","bg_gradient":"","text_color":"#ffffff"}}},"block_order":["announcement-1"],"settings":{"message_font_size":14,"announcement_bar_col":"#0b0b0b","announcement_bar_gradient":"","announcement_text_col":"#ffffff","show_social_icons":true,"menu":"","enable_country_selector":true,"enable_language_selector":true}},"background_video_3H7HWy":{"type":"background-video","disabled":true,"custom_css":["video {max-width: 350px; height: 110px; width: 250px; object-it: contain; display: block; margin: 0 auto; position: fixed;}","#section-id-sections--24711889322278__background_video_3H7HWy {min-height: 100px !important; padding-top: 1px !important; padding-bottom: 1px !important; margin-top: 0 !important; margin-bottom: 0 !important;}"],"settings":{"video_shopify":"shopify:\/\/files\/videos\/tolstoy_b197652d-f281-412e-9b47-df413cf1f89e_hero_desktop_apg6480ntn07b.mp4","video_external":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","video_description":"","text_alignment":"center center","height_desktop":100,"height_mobile":100,"full_width":true,"overlay_style":"shadow"}},"store-messages":{"type":"store-messages","disabled":true,"settings":{"head_not_home_only":false,"head_not_col_bg":"#f4f6f8","head_not_col_txt1":"#171717","head_not_col_txt2":"#4c4c4b","head_not_mob_show":false,"head_not_mob_text":"Sign up for our newsletter to get access to new surfboards, sales, events and more!","head_not_mob_url":"shopify:\/\/pages\/join-the-club"}},"header":{"type":"header","custom_css":[],"settings":{"logo":"shopify:\/\/shop_images\/Asset_3_2x_a5de5ca2-0fa9-4fd3-982b-1ab210d0cd32.png","logo_img_width_int":120,"mobile_logo_img_width_int":135,"logo_h1":false,"enable_sticky":false,"header_video":"shopify:\/\/files\/videos\/dolphim neon.mp4","header_video_autoplay":true,"header_video_muted":true,"enable_transparent":false,"transparent_color":"#000000","menu_linklist":"main-menu","menu_layout":"underneath","nav_featured_link":"Sale","menu_linklist_mobile":"","mobile_expand_with_entire_link":true,"enable_mobile_promo_carousel":true,"enable_nav_mob_products":true,"nav_mob_products_title":"Best Sellers","nav_mob_products_collection":"","enable_search":true,"search_recommendations_title":"","search_recommendations_menu":"","icon_strategy":"icons_all","cart_icon":"bag"}}},"order":["announcement-bar","background_video_3H7HWy","store-messages","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "<a href=\"/pages/join-the-club\" title=\"Join The Club\">Sign up for our newsletter </a> to get access to new surfboards, sales, events and more!",
+            "show_countdown": false,
+            "hide_on_end": false,
+            "end_date": "",
+            "end_time": "",
+            "number_font": "base",
+            "countdown_separator": "box",
+            "use_custom_colors": false,
+            "bg_color": "#202020",
+            "bg_gradient": "",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-1"
+      ],
+      "settings": {
+        "message_font_size": 14,
+        "announcement_bar_col": "#0b0b0b",
+        "announcement_bar_gradient": "",
+        "announcement_text_col": "#ffffff",
+        "show_social_icons": true,
+        "menu": "",
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    },
+    "background_video_3H7HWy": {
+      "type": "background-video",
+      "disabled": true,
+      "custom_css": [
+        "video {max-width: 350px; height: 110px; width: 250px; object-it: contain; display: block; margin: 0 auto; position: fixed;}",
+        "#section-id-sections--24711889322278__background_video_3H7HWy {min-height: 100px !important; padding-top: 1px !important; padding-bottom: 1px !important; margin-top: 0 !important; margin-bottom: 0 !important;}"
+      ],
+      "settings": {
+        "video_shopify": "shopify://files/videos/tolstoy_b197652d-f281-412e-9b47-df413cf1f89e_hero_desktop_apg6480ntn07b.mp4",
+        "video_external": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_description": "",
+        "text_alignment": "center center",
+        "height_desktop": 100,
+        "height_mobile": 100,
+        "full_width": true,
+        "overlay_style": "shadow"
+      }
+    },
+    "store-messages": {
+      "type": "store-messages",
+      "disabled": true,
+      "settings": {
+        "head_not_home_only": false,
+        "head_not_col_bg": "#f4f6f8",
+        "head_not_col_txt1": "#171717",
+        "head_not_col_txt2": "#4c4c4b",
+        "head_not_mob_show": false,
+        "head_not_mob_text": "Sign up for our newsletter to get access to new surfboards, sales, events and more!",
+        "head_not_mob_url": "shopify://pages/join-the-club"
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo": "shopify://shop_images/Asset_3_2x_a5de5ca2-0fa9-4fd3-982b-1ab210d0cd32.png",
+        "logo_img_width_int": 315,
+        "mobile_logo_img_width_int": 135,
+        "logo_h1": false,
+        "enable_sticky": false,
+        "header_video": "shopify://files/videos/dolphim neon.mp4",
+        "header_video_autoplay": true,
+        "header_video_muted": true,
+        "enable_transparent": false,
+        "transparent_color": "#000000",
+        "menu_linklist": "main-menu",
+        "menu_layout": "underneath",
+        "nav_featured_link": "Sale",
+        "menu_linklist_mobile": "",
+        "mobile_expand_with_entire_link": true,
+        "enable_mobile_promo_carousel": true,
+        "enable_nav_mob_products": true,
+        "nav_mob_products_title": "Best Sellers",
+        "nav_mob_products_collection": "",
+        "enable_search": true,
+        "search_recommendations_title": "",
+        "search_recommendations_menu": "",
+        "icon_strategy": "icons_all",
+        "cart_icon": "bag"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "background_video_3H7HWy",
+    "store-messages",
+    "header"
+  ]
+}
