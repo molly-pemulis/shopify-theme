@@ -34,6 +34,12 @@
   --nav-font-weight:               {{ nav_font.weight }};
   --nav-font-style:                {{ nav_font.style }};
 
+  /* Override theme fonts to use EB Garamond from Google Fonts */
+  --base-font-family:              "EB Garamond", serif;
+  --heading-font-family:           "EB Garamond", serif;
+  --logo-font-family:              "EB Garamond", serif;
+  --nav-font-family:               "EB Garamond", serif;
+
   --base-text-size:                {{- settings.font_size_base_int }}px;
   --base-line-height:              1.6;
   --input-text-size:               {{- settings.font_size_base_int | at_least: 16 }}px;
