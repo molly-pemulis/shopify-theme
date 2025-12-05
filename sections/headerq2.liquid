@@ -29,20 +29,20 @@
     }
   {%- endif -%}
 
-  /* Header video styles */
-  .header-video-wrapper {
-    margin-top: 0.75rem;
+  .logo-area__middle .logo-area__middle__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .header-video-wrapper .header-video-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+  .logo-area__video {
+    flex-shrink: 0;
   }
 
-  .header-video-wrapper video {
-    width: 100%;
-    height: auto;
+  .logo-area__video video {
     display: block;
+    max-height: 80px;
+    width: auto;
   }
 {% endstyle %}
 
@@ -133,6 +133,11 @@
 
       <div class="logo-area__middle logo-area__middle--logo-{% if section.settings.logo != blank %}image{% else %}text{% endif %}">
         <div class="logo-area__middle__inner">
+          {%- if section.settings.header_video != blank and section.settings.header_video_position == 'left' -%}
+            <div class="logo-area__video logo-area__video--left">
+              {{ section.settings.header_video | video_tag: autoplay: section.settings.header_video_autoplay, loop: section.settings.header_video_autoplay, muted: section.settings.header_video_muted, controls: false, playsinline: true }}
+            </div>
+          {%- endif -%}
           <div class="logo">
             {%- if request.page_type == 'index' and section.settings.logo_h1 -%}
               <h1 class="logo__h1">
@@ -156,6 +161,11 @@
               </h1>
             {%- endif -%}
           </div>
+          {%- if section.settings.header_video != blank and section.settings.header_video_position == 'right' -%}
+            <div class="logo-area__video logo-area__video--right">
+              {{ section.settings.header_video | video_tag: autoplay: section.settings.header_video_autoplay, loop: section.settings.header_video_autoplay, muted: section.settings.header_video_muted, controls: false, playsinline: true }}
+            </div>
+          {%- endif -%}
         </div>
       </div>
 
@@ -215,14 +225,6 @@
         </div>
       </div>
     </div>
-
-    {%- if section.settings.header_video != blank -%}
-      <div class="header-video-wrapper container">
-        <div class="header-video-inner">
-          {{ section.settings.header_video | video_tag: autoplay: section.settings.header_video_autoplay, loop: section.settings.header_video_autoplay, muted: section.settings.header_video_muted, controls: false, playsinline: true }}
-        </div>
-      </div>
-    {%- endif -%}
 
     {%- if section.settings.enable_search -%}
       {%- liquid
@@ -520,6 +522,23 @@
       "id": "header_video_muted",
       "label": "Mute video",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "header_video_position",
+      "label": "Header video position",
+      "default": "right",
+      "info": "Place the header video on either side of the logo.",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left of logo"
+        },
+        {
+          "value": "right",
+          "label": "Right of logo"
+        }
+      ]
     },
     {
       "type": "header",
