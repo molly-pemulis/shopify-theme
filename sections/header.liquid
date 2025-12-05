@@ -393,76 +393,453 @@
     {%- endif -%}
   </div>
 
-  <main-navigation id="main-nav" class="desktop-only" data-proxy-nav="proxy-nav">
-    <div class="navigation navigation--main" role="navigation" aria-label="{{ 'accessibility.main_navigation' | t }}">
-      <div class="navigation__tier-1-container">
-        {% if section.settings.use_manual_menu %}
-          {% render 'manual-main-nav-links', manual_blocks: section.blocks, mobile: false %}
-        {% else %}
-          {% render 'main-nav-links', link_list: section.settings.menu_linklist, mobile: false, featured_links: featured_links %}
-        {% endif %}
-      </div>
-    </div>
+  {% if section.settings.use_hardcoded_menu %}
+    <main-navigation id="main-nav" class="desktop-only" data-proxy-nav="proxy-nav">
+      <div class="navigation navigation--main" role="navigation" aria-label="Primary">
+        <div class="navigation__tier-1-container">
+          <ul class="navigation__tier-1">
 
-    {%- assign mobile_linklist = section.settings.menu_linklist_mobile | default: section.settings.menu_linklist -%}
-    <script class="mobile-navigation-drawer-template" type="text/template">
-      <div class="mobile-navigation-drawer" data-mobile-expand-with-entire-link="{{ section.settings.mobile_expand_with_entire_link }}">
-        <div class="navigation navigation--main" role="navigation" aria-label="{{ 'accessibility.main_navigation' | t }}">
+<li class="navigation__item navigation__item--with-children navigation__item--with-mega-menu navigation__item--active">
+      <a href="/" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">SHOP</a>
+
+
+        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+        <div id="NavigationTier2-1" class="navigation__tier-2-container navigation__child-tier"><div class="container">
+              <ul class="navigation__tier-2 navigation__columns navigation__columns--count-4">
+
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">SURFBOARDS</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/new-surfboards">NEW SURFBOARDS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/used-surfboards-1">USED SURFBOARDS</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">SURF / BEACH STUFF</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/sun-skincare">SUNSCREEN/ SKINCARE</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/board-shorts">BOARD SHORTS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/fins">FINS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/leashes-and-traction-grips">LEASHES/TRACTION</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/floatation-devices">FLOATATION DEVICES</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">MOTO APPAREL / GEAR</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/mx-jerseys">JERSEYS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/gloves">GLOVES</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/vintage-mx">VINTAGE MOTO</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">APPAREL / ACCESSORIES</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/unique-t-shirts">T-SHIRT HEAVEN</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/bottoms">BOTTOMS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/tops">TOPS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/sunglasses">SUNGLASSES</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/hats">HATS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="https://pemuliswaterandpower.com/search?q=bags">BAGS</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+
+
+                </ul>
+            </div></div>
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/pages/obsf-store" class="navigation__link" >The San Francisco Store</a>
+
+
+    </li>
+
+<li class="navigation__item navigation__item--active">
+      <a href="/" class="navigation__link" >SURF</a>
+
+
+    </li>
+
+<li class="navigation__item navigation__item--active">
+      <a href="/" class="navigation__link" >MOTORSPORT</a>
+
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/pages/sale" class="navigation__link" >SALE</a>
+
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/blogs/blog" class="navigation__link" >BLOG</a>
+
+
+    </li>
+
+  </ul>
+        </div>
+      </div><script class="mobile-navigation-drawer-template" type="text/template">
+      <div class="mobile-navigation-drawer" data-mobile-expand-with-entire-link="true">
+        <div class="navigation navigation--main" role="navigation" aria-label="Primary">
           <div class="navigation__tier-1-container">
             <div class="navigation__mobile-header">
-              <a href="#" class="mobile-nav-back has-ltr-icon" aria-label="{{ 'general.navigation.back' | t }}">{% render 'icon-chevron-left', stroke_width: 1.3 %}</a>
+              <a href="#" class="mobile-nav-back has-ltr-icon" aria-label="Back">{% render 'icon-chevron-left', stroke_width: 1.3 %}</a>
               <span class="mobile-nav-title"></span>
-              <a href="#" class="mobile-nav-toggle"  aria-label="{{ 'general.navigation.close' | t }}">{% render 'icon-close', stroke_width: 1.3 %}</a>
+              <a href="#" class="mobile-nav-toggle"  aria-label="Close">{% render 'icon-close', stroke_width: 1.3 %}</a>
             </div>
-            {% if section.settings.use_manual_menu %}
-              {% render 'manual-main-nav-links', manual_blocks: section.blocks, mobile: true %}
-            {% else %}
-              {% render 'main-nav-links', link_list: mobile_linklist, mobile: true, featured_links: featured_links %}
-            {% endif %}
-            {% if section.settings.enable_nav_mob_products %}
+            <ul class="navigation__tier-1">
+
+<li class="navigation__item navigation__item--with-children navigation__item--with-mega-menu navigation__item--active">
+      <a href="/" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1-mob">SHOP</a>
+
+
+        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+        <div id="NavigationTier2-1-mob" class="navigation__tier-2-container navigation__child-tier"><div class="container">
+              <ul class="navigation__tier-2 navigation__columns navigation__columns--count-4">
+
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">SURFBOARDS</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/new-surfboards">NEW SURFBOARDS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/used-surfboards-1">USED SURFBOARDS</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">SURF / BEACH STUFF</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/sun-skincare">SUNSCREEN/ SKINCARE</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/board-shorts">BOARD SHORTS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/fins">FINS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/leashes-and-traction-grips">LEASHES/TRACTION</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/floatation-devices">FLOATATION DEVICES</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">MOTO APPAREL / GEAR</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/mx-jerseys">JERSEYS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/gloves">GLOVES</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/vintage-mx">VINTAGE MOTO</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="navigation__item navigation__item--with-children navigation__column">
+                      <a href="/" class="navigation__link navigation__column-title" aria-haspopup="true" aria-expanded="false">APPAREL / ACCESSORIES</a>
+
+                        <a class="navigation__children-toggle" href="#" aria-label="Show links">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+
+
+
+                        <div class="navigation__tier-3-container navigation__child-tier">
+                          <ul class="navigation__tier-3">
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/unique-t-shirts">T-SHIRT HEAVEN</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/bottoms">BOTTOMS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/tops">TOPS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/sunglasses">SUNGLASSES</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="/collections/hats">HATS</a>
+                            </li>
+
+                            <li class="navigation__item">
+                              <a class="navigation__link" href="https://pemuliswaterandpower.com/search?q=bags">BAGS</a>
+                            </li>
+
+                          </ul>
+                        </div>
+
+                    </li>
+
+
+
+                </ul>
+            </div></div>
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/pages/obsf-store" class="navigation__link" >The San Francisco Store</a>
+
+
+    </li>
+
+<li class="navigation__item navigation__item--active">
+      <a href="/" class="navigation__link" >SURF</a>
+
+
+    </li>
+
+<li class="navigation__item navigation__item--active">
+      <a href="/" class="navigation__link" >MOTORSPORT</a>
+
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/pages/sale" class="navigation__link" >SALE</a>
+
+
+    </li>
+
+<li class="navigation__item">
+      <a href="/blogs/blog" class="navigation__link" >BLOG</a>
+
+
+    </li>
+
+  </ul>
+            
               <div class="navigation__mobile-products">
-                <div class="navigation__mobile-products-title">{{ section.settings.nav_mob_products_title | escape }}</div>
+                <div class="navigation__mobile-products-title">Best Sellers</div>
                 <div class="product-grid product-grid--scrollarea">
-                  {%- liquid
-                    assign product_limit = 10
-                    if settings.prod_thumb_shape == 'portrait-23'
-                      assign chosen_aspect_ratio = 0.67
-                    elsif settings.prod_thumb_shape == 'portrait-45'
-                      assign chosen_aspect_ratio = 0.8
-                    elsif settings.prod_thumb_shape == 'square'
-                      assign chosen_aspect_ratio = 1.0
-                    elsif settings.prod_thumb_shape == 'landscape-54'
-                      assign chosen_aspect_ratio = 1.25
-                    elsif settings.prod_thumb_shape == 'landscape-32'
-                      assign chosen_aspect_ratio = 1.50
-                    elsif settings.prod_thumb_shape == 'tallest'
-                      assign chosen_aspect_ratio = 99
-                      for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit
-                        if product.featured_media.preview_image.aspect_ratio < chosen_aspect_ratio
-                          assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
-                        endif
-                      endfor
-                    else
-                      assign chosen_aspect_ratio = 0
-                      for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit
-                        if product.featured_media.preview_image.aspect_ratio > chosen_aspect_ratio
-                          assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
-                        endif
-                      endfor
-                    endif
-                  -%}
-                  {% for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit %}
-                    {% render 'product-block', product: product, custom_aspect_ratio: chosen_aspect_ratio, no_swiping: true, no_quick_buy_markup: true, manual_loading: true %}
-                  {% endfor %}
                 </div>
               </div>
-            {% endif %}
+            
           </div>
         </div>
         <div class="mobile-navigation-drawer__footer"></div>
       </div>
     </script>
-  </main-navigation>
+    </main-navigation>
+  {% else %}
+    <main-navigation id="main-nav" class="desktop-only" data-proxy-nav="proxy-nav">
+      <div class="navigation navigation--main" role="navigation" aria-label="{{ 'accessibility.main_navigation' | t }}">
+        <div class="navigation__tier-1-container">
+          {% if section.settings.use_manual_menu %}
+            {% render 'manual-main-nav-links', manual_blocks: section.blocks, mobile: false %}
+          {% else %}
+            {% render 'main-nav-links', link_list: section.settings.menu_linklist, mobile: false, featured_links: featured_links %}
+          {% endif %}
+        </div>
+      </div>
+
+      {%- assign mobile_linklist = section.settings.menu_linklist_mobile | default: section.settings.menu_linklist -%}
+      <script class="mobile-navigation-drawer-template" type="text/template">
+        <div class="mobile-navigation-drawer" data-mobile-expand-with-entire-link="{{ section.settings.mobile_expand_with_entire_link }}">
+          <div class="navigation navigation--main" role="navigation" aria-label="{{ 'accessibility.main_navigation' | t }}">
+            <div class="navigation__tier-1-container">
+              <div class="navigation__mobile-header">
+                <a href="#" class="mobile-nav-back has-ltr-icon" aria-label="{{ 'general.navigation.back' | t }}">{% render 'icon-chevron-left', stroke_width: 1.3 %}</a>
+                <span class="mobile-nav-title"></span>
+                <a href="#" class="mobile-nav-toggle"  aria-label="{{ 'general.navigation.close' | t }}">{% render 'icon-close', stroke_width: 1.3 %}</a>
+              </div>
+              {% if section.settings.use_manual_menu %}
+                {% render 'manual-main-nav-links', manual_blocks: section.blocks, mobile: true %}
+              {% else %}
+                {% render 'main-nav-links', link_list: mobile_linklist, mobile: true, featured_links: featured_links %}
+              {% endif %}
+              {% if section.settings.enable_nav_mob_products %}
+                <div class="navigation__mobile-products">
+                  <div class="navigation__mobile-products-title">{{ section.settings.nav_mob_products_title | escape }}</div>
+                  <div class="product-grid product-grid--scrollarea">
+                    {%- liquid
+                      assign product_limit = 10
+                      if settings.prod_thumb_shape == 'portrait-23'
+                        assign chosen_aspect_ratio = 0.67
+                      elsif settings.prod_thumb_shape == 'portrait-45'
+                        assign chosen_aspect_ratio = 0.8
+                      elsif settings.prod_thumb_shape == 'square'
+                        assign chosen_aspect_ratio = 1.0
+                      elsif settings.prod_thumb_shape == 'landscape-54'
+                        assign chosen_aspect_ratio = 1.25
+                      elsif settings.prod_thumb_shape == 'landscape-32'
+                        assign chosen_aspect_ratio = 1.50
+                      elsif settings.prod_thumb_shape == 'tallest'
+                        assign chosen_aspect_ratio = 99
+                        for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit
+                          if product.featured_media.preview_image.aspect_ratio < chosen_aspect_ratio
+                            assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                          endif
+                        endfor
+                      else
+                        assign chosen_aspect_ratio = 0
+                        for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit
+                          if product.featured_media.preview_image.aspect_ratio > chosen_aspect_ratio
+                            assign chosen_aspect_ratio = product.featured_media.preview_image.aspect_ratio
+                          endif
+                        endfor
+                      endif
+                    -%}
+                    {% for product in collections[section.settings.nav_mob_products_collection].products limit: product_limit %}
+                      {% render 'product-block', product: product, custom_aspect_ratio: chosen_aspect_ratio, no_swiping: true, no_quick_buy_markup: true, manual_loading: true %}
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="mobile-navigation-drawer__footer"></div>
+        </div>
+      </script>
+    </main-navigation>
+  {% endif %}
 
   <a href="#" class="header-shade mobile-nav-toggle" aria-label="{{ 'general.navigation.close' | t }}"></a>
 </page-header>
@@ -574,6 +951,13 @@
     {
       "type": "header",
       "content": "Navigation"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_hardcoded_menu",
+      "label": "Use hardcoded navigation override",
+      "info": "Switches the header to the custom hardcoded navigation links instead of Shopify menus.",
+      "default": false
     },
     {
       "type": "checkbox",
