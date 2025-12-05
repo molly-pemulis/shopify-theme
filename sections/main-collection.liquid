@@ -192,8 +192,31 @@
 
   {% if collection.description != blank and section.settings.coll_desc_pos == 'below' %}
     <div class="container container--reading-width fully-spaced-row" {%- render 'animation-attrs', attrs: 'data-cc-animate' -%}>
-      <div class="collection--description rte cf">
-        {{ collection.description }}
+      <div
+        class="collection-description-wrapper"
+        data-collection-desc-wrapper
+      >
+        <button
+          type="button"
+          class="collection-description-toggle"
+          data-collection-desc-toggle
+          aria-expanded="false"
+        >
+          <span class="collection-description-toggle__label">
+            Description
+          </span>
+          <span class="collection-description-toggle__icon" aria-hidden="true">▾</span>
+        </button>
+
+        <div class="collection-description-teaser">
+          {{ collection.description | strip_html | truncate: 130, '…' }}
+        </div>
+
+        <div class="collection-description-full">
+          <div class="collection--description rte cf">
+            {{ collection.description }}
+          </div>
+        </div>
       </div>
     </div>
   {% endif %}
