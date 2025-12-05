@@ -15,6 +15,10 @@
     {%- render 'doc-head-core' -%}
     {%- render 'doc-head-social' -%}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
     {%- liquid
       assign base_font = settings.type_base_font
       assign base_font_bold = base_font | font_modify: 'weight', 'bolder'
