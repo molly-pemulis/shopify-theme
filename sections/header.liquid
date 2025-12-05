@@ -39,6 +39,14 @@
     margin: 0 auto;
   }
 
+  .header-video-wrapper--inline {
+    margin-top: 0;
+  }
+
+  .header-video-wrapper--inline .header-video-inner {
+    margin: 0;
+  }
+
   .header-video-wrapper video {
     width: 100%;
     height: auto;
@@ -156,6 +164,14 @@
               </h1>
             {%- endif -%}
           </div>
+
+          {%- if section.settings.header_video != blank -%}
+            <div class="header-video-wrapper header-video-wrapper--inline">
+              <div class="header-video-inner">
+                {{ section.settings.header_video | video_tag: autoplay: section.settings.header_video_autoplay, loop: section.settings.header_video_autoplay, muted: section.settings.header_video_muted, controls: false, playsinline: true }}
+              </div>
+            </div>
+          {%- endif -%}
         </div>
       </div>
 
@@ -215,14 +231,6 @@
         </div>
       </div>
     </div>
-
-    {%- if section.settings.header_video != blank -%}
-      <div class="header-video-wrapper container">
-        <div class="header-video-inner">
-          {{ section.settings.header_video | video_tag: autoplay: section.settings.header_video_autoplay, loop: section.settings.header_video_autoplay, muted: section.settings.header_video_muted, controls: false, playsinline: true }}
-        </div>
-      </div>
-    {%- endif -%}
 
     {%- if section.settings.enable_search -%}
       {%- liquid
