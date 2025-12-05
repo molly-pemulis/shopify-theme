@@ -1,0 +1,40 @@
+{% assign menu_blocks = manual_blocks | where: 'type', 'manual-menu-item' %}
+<ul class="navigation__tier-1">
+  {% for block in menu_blocks %}
+    {%- liquid
+      assign child_lines = block.settings.child_links | newline_to_br | split: '<br />'
+      assign child_count = 0
+      for child_line in child_lines
+        assign trimmed_line = child_line | strip
+        if trimmed_line != ''
+          assign child_count = child_count | plus: 1
+        endif
+      endfor
+      assign has_children = child_count > 0
+    -%}
+    <li class="navigation__item{% if has_children %} navigation__item--with-children navigation__item--with-small-menu{% endif %}">
+      <a href="{{ block.settings.url | default: '#' }}" class="navigation__link" {% if has_children %}aria-haspopup="true" aria-expanded="false" aria-controls="ManualNavigationTier2-{{ forloop.index }}{% if mobile %}-mob{% endif %}"{% endif %}>
+        {{- block.settings.title | escape -}}
+      </a>
+
+      {% if has_children %}
+        <a class="navigation__children-toggle" href="#" aria-label="{{ 'general.navigation.show_links' | t }}">{% render 'icon-toggle-menu', stroke_width: 1.3 %}</a>
+        <div id="ManualNavigationTier2-{{ forloop.index }}{% if mobile %}-mob{% endif %}" class="navigation__tier-2-container navigation__child-tier">
+          <ul class="navigation__tier-2">
+            {% for child_line in child_lines %}
+              {% assign trimmed_line = child_line | strip %}
+              {% if trimmed_line != '' %}
+                {% assign child_parts = trimmed_line | split: '|' %}
+                {% assign child_label = child_parts | first | strip %}
+                {% assign child_url = child_parts | last | strip %}
+                <li class="navigation__item">
+                  <a href="{{ child_url | default: '#' }}" class="navigation__link">{{ child_label | escape }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
