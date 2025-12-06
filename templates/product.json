@@ -11,6 +11,7 @@
   "sections": {
     "related-products": {
       "type": "related-products",
+      "custom_css": [],
       "settings": {
         "title": "You may also like{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}",
         "show_vendor": false,
