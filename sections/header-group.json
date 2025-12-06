@@ -11,6 +11,36 @@
   "type": "header",
   "name": "Header Group",
   "sections": {
+    "scrolling_banner_F3TLKg": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "text_M8JPhT": {
+          "type": "text",
+          "settings": {
+            "text": "FREE SHIPPING IN DEC ON ORDERS $150+!",
+            "color": "#32b6b6",
+            "link": "",
+            "use_h1": false,
+            "stencil_all_text": false,
+            "stencil_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_M8JPhT"
+      ],
+      "name": "Scrolling banner",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "1",
+        "text_size": 16,
+        "vertical_padding": 8,
+        "speed": 35,
+        "direction": "left",
+        "font": "base",
+        "space": 50
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
@@ -90,6 +120,8 @@
         "header_video_muted": true,
         "enable_transparent": false,
         "transparent_color": "#000000",
+        "use_hardcoded_menu": true,
+        "use_manual_menu": true,
         "menu_linklist": "main-menu",
         "menu_layout": "underneath",
         "nav_featured_link": "Sale",
@@ -108,6 +140,7 @@
     }
   },
   "order": [
+    "scrolling_banner_F3TLKg",
     "announcement-bar",
     "background_video_3H7HWy",
     "store-messages",
