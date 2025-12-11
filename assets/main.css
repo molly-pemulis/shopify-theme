@@ -10914,6 +10914,9 @@ textarea {
   padding-top: 60px;
   padding-bottom: 40px;
 }
+h1 {
+  color: red;
+}
 @media (min-width: 769px){
   .md\:block{
     display: block;
