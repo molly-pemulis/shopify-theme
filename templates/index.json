@@ -1,1 +1,631 @@
-{"sections":{"logo_list_QEr3LH":{"type":"logo-list","blocks":{"logo_mawKKR":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/channels4_profile.jpg","image_width":160,"link":"shopify:\/\/collections\/rage","title":""}},"logo_rc4Yaj":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2025-04-28_at_2.37.45_PM.png","image_width":160,"link":"shopify:\/\/collections\/mafia-bags","title":""}},"logo_dCxn9E":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/El_solitario_mc_logo_brand_pemulis.jpg","image_width":160,"link":"shopify:\/\/collections\/el-solitario","title":""}},"logo_niJrQR":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/gato-heroi-surfboards-30888.jpg","image_width":160,"link":"shopify:\/\/collections\/gato-heroi","title":""}},"logo_MiQpPU":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/deus_x_machina_f2b42350b3.webp","image_width":160,"link":"shopify:\/\/collections\/deus-ex-machina","title":""}},"logo_tUtaJr":{"type":"logo","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Wild_things_gallery_australia_logo_brand_Pemulis.png","image_width":160,"link":"","title":""}},"logo_N4ExeJ":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/crap_eyewear_logo.png","image_width":160,"link":"shopify:\/\/collections\/crap-eyewear-1","title":""}},"logo_TMeYjA":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/george_greenough_logo.png","image_width":160,"link":"shopify:\/\/collections\/fins","title":""}},"logo_rfLgRV":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/100_percent_logo.jpg","image_width":160,"link":"shopify:\/\/collections\/100","title":""}},"logo_VP7ree":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/fox_racing_logo.webp","image_width":160,"link":"shopify:\/\/collections\/fox-racing","title":""}},"logo_J8ajbB":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/avasol_logo.png","image_width":160,"link":"shopify:\/\/collections\/avasol","title":""}},"logo_qxqTcA":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Wild_things_gallery_australia_logo_brand_Pemulis.png","image_width":160,"link":"shopify:\/\/collections\/wild-things-australia","title":""}},"logo_MUVQPY":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/true_ames_logo.jpg","image_width":160,"link":"shopify:\/\/collections\/true-ames","title":""}}},"block_order":["logo_mawKKR","logo_rc4Yaj","logo_dCxn9E","logo_niJrQR","logo_MiQpPU","logo_tUtaJr","logo_N4ExeJ","logo_TMeYjA","logo_rfLgRV","logo_VP7ree","logo_J8ajbB","logo_qxqTcA","logo_MUVQPY"],"name":"Logo list","settings":{"title":"Our Favorite Brands","image_opacity":100,"color_scheme":"default"}},"slideshow_JiQL99":{"type":"slideshow","blocks":{"image_9CLXJF":{"type":"image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/mafia_banner2.jpg","slide_link":"shopify:\/\/collections\/mafia-bags","subheading":"Designed in San Francisco","title":"MAFIA BAGS","heading_max_width":15,"title_size":84,"title_size_mobile":46,"use_h1":false,"text":"<p>MADE FROM UPCYCLED SAILS<\/p>","enlarge_text":true,"button_label_1":"","button_url_1":"","button_label_2":"Shop all","button_url_2":"shopify:\/\/collections\/mafia-bags","text_alignment":"top right"}},"image_KqKRCR":{"type":"image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/mafia_bags.png","slide_link":"shopify:\/\/collections\/mafia-bags","subheading":"","title":"","heading_max_width":15,"title_size":84,"title_size_mobile":46,"use_h1":false,"text":"","enlarge_text":true,"button_label_1":"","button_url_1":"","button_label_2":"","button_url_2":"","text_alignment":"center center"}},"image_fa96nC":{"type":"image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/mafia_banner2-090.jpg","slide_link":"","subheading":"Tell your story","title":"Slide heading","heading_max_width":15,"title_size":84,"title_size_mobile":46,"use_h1":false,"text":"<p>And optional subtext<\/p>","enlarge_text":true,"button_label_1":"Shop this","button_url_1":"","button_label_2":"Shop all","button_url_2":"","text_alignment":"center center"}},"image_Kt8ydL":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/MG_1975.jpg","slide_link":"","subheading":"PEmulis Floating Dolphin","title":"THE ULTIMATE STOCKING STUFFER","heading_max_width":25,"title_size":60,"title_size_mobile":46,"use_h1":false,"text":"","enlarge_text":true,"button_label_1":"BUY NOW","button_url_1":"shopify:\/\/products\/pemulis-water-power-pemulis-floating-dolphin-keychain-floatation-devices-high-quality-gear","button_label_2":"","button_url_2":"","text_alignment":"center center"}}},"block_order":["image_9CLXJF","image_KqKRCR","image_fa96nC","image_Kt8ydL"],"name":"Slideshow","settings":{"height":"fixed","height_desktop":600,"height_mobile":460,"full_width":false,"mobile_overlay_under":false,"overlay_style":"no_background","transition":"fade","navigation":"arrows","autoplay":true,"autoplay_speed":7,"accessibility_info":""}},"collection_list_4C6Ktk":{"type":"collection-list","blocks":{"collection_C7ctdR":{"type":"collection","settings":{"collection":"gato-heroi-wetsuits","subheading":"Aesthetics Matter","button_label":""}},"collection_mp4eeV":{"type":"collection","settings":{"collection":"wild-things-fins","subheading":"Imported From Oz","button_label":""}},"collection_mCPeEU":{"type":"collection","settings":{"collection":"avasol","subheading":"Eco Friendly Mineral Sunscreen","button_label":""}},"collection_x7jrFn":{"type":"collection","settings":{"collection":"rage","subheading":"Team Gear","button_label":""}}},"block_order":["collection_C7ctdR","collection_mp4eeV","collection_mCPeEU","collection_x7jrFn"],"disabled":true,"settings":{"title":"Surf Brands","enable_carousel":true,"grid":4,"color_scheme":"default","full_width":true,"coll_grid_image_shape":"square","coll_grid_image_position":"center center","coll_thumb_mob_per_row":"2","coll_grid_show_count":true,"coll_text_position":"below","coll_text_position_under_mobile":false,"coll_thumb_text_align_x":"center","coll_thumb_text_align_y":"center","coll_button_style":"primary"}},"image_with_text_overlay_6FbM6k":{"type":"image-with-text-overlay","blocks":{"subheading_EEznhw":{"type":"subheading","settings":{"subheading":"Blog Post"}},"heading_YqE9TL":{"type":"heading","settings":{"title":"The Wonderful World Of Gato Heroi Fins","heading_max_width":15,"title_size":60,"title_size_mobile":32,"use_h1":false}},"button_kmagMU":{"type":"button","settings":{"button_label":"Find your Fin","button_link":"shopify:\/\/blogs\/blog\/gato-heroi-fin-buyer-s-guide-2024-full-profiles-board-pairings-how-to-choose-the-right-fin","button_style":"secondary"}}},"block_order":["subheading_EEznhw","heading_YqE9TL","button_kmagMU"],"name":"Image with text overlay","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2025-08-07_at_2.46.35_PM.png","height":"fixed","height_desktop":560,"height_mobile":460,"image_link":"shopify:\/\/pages\/gato-heroi-fin-buyer-s-guide-2024-full-profiles-board-pairings-how-to-choose-the-right-fin","full_width":false,"text_alignment":"bottom center","mobile_overlay_under":false,"overlay_style":"no_background"}},"1635927863703110df":{"type":"rich-text","blocks":{"1635927863703110df-1":{"type":"heading","settings":{"title":"San Francisco Surf Shop","use_h1":true}},"1635927863703110df-2":{"type":"text","settings":{"text":"<h2>A unique blend of interesting surf, motorsport, and home goods from all over the world<\/h2>","enlarge_text":false}}},"block_order":["1635927863703110df-1","1635927863703110df-2"],"settings":{"height":"small","text_alignment":"center","full_width":false,"color_scheme":"default"}},"16359279164ff7d3f3":{"type":"gallery","blocks":{"16359279164ff7d3f3-0":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Screenshot_2024-11-21_at_2.55.48_AM.png","enlarge_media":true,"subheading":"","title":"*When you purchase a new Surfboard","button_label":"FREE HAT!*","link":"shopify:\/\/products\/pemulis-water-power-pemulis-logo-trucker-hat-hats-high-quality-gear","text_alignment":"bottom right"}},"16359279164ff7d3f3-1":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/pemulis_interior_used_board_rack.jpg","enlarge_media":false,"subheading":"Gallery","title":"","button_label":"","link":"","text_alignment":"bottom left"}},"16359279164ff7d3f3-2":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/IMG_2967_1.png","enlarge_media":false,"subheading":"Events","title":"","button_label":"","link":"","text_alignment":"bottom left"}},"474c4491-283d-4680-a37b-7b5a444e7e62":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/20DW-STORY16.jpg","enlarge_media":false,"subheading":"WTF","title":"EL SOLITARIO","button_label":"","link":"","text_alignment":"bottom left"}}},"block_order":["16359279164ff7d3f3-0","16359279164ff7d3f3-1","16359279164ff7d3f3-2","474c4491-283d-4680-a37b-7b5a444e7e62"],"disabled":true,"settings":{"grid_desktop":1,"grid_mobile":"1","height":"adapt","desktop_image_height":460,"mobile_image_height":400,"title_size":30,"title_size_mobile":22,"enable_margin":true,"enable_row_spacing":true,"full_width":false,"color_scheme":"default","enable_carousel":true,"overlay_style":"no_background","button_style":"primary"}},"background_video_modified_4GjkFq":{"type":"background-video-modified","blocks":{"button_kgyRFN":{"type":"button","settings":{"button_label":"SHOP RARE AND VINTAGE TEES","button_link":"shopify:\/\/collections\/unique-t-shirts","button_style":"primary"}}},"block_order":["button_kgyRFN"],"name":"Background video stop","settings":{"video_shopify":"shopify:\/\/files\/videos\/tshirt video.mp4","video_external":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","video_description":"","text_alignment":"center center","height_desktop":500,"height_mobile":500,"full_width":false,"overlay_style":"no_background"}},"featured_collection_aiVjFz":{"type":"featured-collection","name":"Featured collection","settings":{"title":"","collection":"unique-t-shirts","show_vendor":false,"enable_carousel":true,"grid":5,"rows":1,"color_scheme":"default","show_view_all":true,"full_width":true}},"16359278676808bea5":{"type":"featured-collection","disabled":true,"custom_css":[],"settings":{"title":"MX Jerseys","collection":"mx-jerseys","show_vendor":true,"enable_carousel":true,"grid":4,"rows":1,"color_scheme":"default","show_view_all":true,"full_width":true}},"163592870141219e2f":{"type":"featured-blog","disabled":true,"settings":{"title":"Blog posts","blog":"blog","post_limit":3,"show_author":false,"show_date":true,"show_excerpts":true,"crop_ratio":"0.67","color_scheme":"default"}},"hotspots_fxcyjj":{"type":"hotspots","blocks":{"hotspot_at4Ejb":{"type":"hotspot","settings":{"hotspot_x":28,"hotspot_y":38,"hotspot_x_mobile":28,"hotspot_y_mobile":38,"heading":"Feature name","text":"<p>Share useful information about your product features.<\/p>","icon":"","icon_width":32}},"hotspot_gNqBig":{"type":"hotspot","settings":{"hotspot_x":60,"hotspot_y":23,"hotspot_x_mobile":60,"hotspot_y_mobile":23,"heading":"Feature name","text":"<p>Share useful information about your product features.<\/p>","icon":"","icon_width":32}},"hotspot_GGVJx7":{"type":"hotspot","settings":{"hotspot_x":73,"hotspot_y":54,"hotspot_x_mobile":73,"hotspot_y_mobile":54,"heading":"Feature name","text":"<p>Share useful information about your product features.<\/p>","icon":"","icon_width":32}}},"block_order":["hotspot_at4Ejb","hotspot_gNqBig","hotspot_GGVJx7"],"disabled":true,"name":"Hotspots","settings":{"hotspot_color":"#070707","button_content":"plus","outer_circle":"pulse","full_width":true,"text_alignment":"top left","overlay_style":"shadow","subheading":"","title":"","use_h1":false,"heading_max_width":10,"text":"","button_1_label":"","button_1_link":"","button_1_style":"secondary","button_2_label":"","button_2_link":"","button_2_style":"primary"}}},"order":["logo_list_QEr3LH","slideshow_JiQL99","collection_list_4C6Ktk","image_with_text_overlay_6FbM6k","1635927863703110df","16359279164ff7d3f3","background_video_modified_4GjkFq","featured_collection_aiVjFz","16359278676808bea5","163592870141219e2f","hotspots_fxcyjj"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "logo_list_QEr3LH": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_mawKKR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/channels4_profile.jpg",
+            "image_width": 160,
+            "link": "shopify://collections/rage",
+            "title": ""
+          }
+        },
+        "logo_rc4Yaj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-04-28_at_2.37.45_PM.png",
+            "image_width": 160,
+            "link": "shopify://collections/mafia-bags",
+            "title": ""
+          }
+        },
+        "logo_dCxn9E": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/El_solitario_mc_logo_brand_pemulis.jpg",
+            "image_width": 160,
+            "link": "shopify://collections/el-solitario",
+            "title": ""
+          }
+        },
+        "logo_niJrQR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/gato-heroi-surfboards-30888.jpg",
+            "image_width": 160,
+            "link": "shopify://collections/gato-heroi",
+            "title": ""
+          }
+        },
+        "logo_MiQpPU": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/deus_x_machina_f2b42350b3.webp",
+            "image_width": 160,
+            "link": "shopify://collections/deus-ex-machina",
+            "title": ""
+          }
+        },
+        "logo_tUtaJr": {
+          "type": "logo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Wild_things_gallery_australia_logo_brand_Pemulis.png",
+            "image_width": 160,
+            "link": "",
+            "title": ""
+          }
+        },
+        "logo_N4ExeJ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/crap_eyewear_logo.png",
+            "image_width": 160,
+            "link": "shopify://collections/crap-eyewear-1",
+            "title": ""
+          }
+        },
+        "logo_TMeYjA": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/george_greenough_logo.png",
+            "image_width": 160,
+            "link": "shopify://collections/fins",
+            "title": ""
+          }
+        },
+        "logo_rfLgRV": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/100_percent_logo.jpg",
+            "image_width": 160,
+            "link": "shopify://collections/100",
+            "title": ""
+          }
+        },
+        "logo_VP7ree": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/fox_racing_logo.webp",
+            "image_width": 160,
+            "link": "shopify://collections/fox-racing",
+            "title": ""
+          }
+        },
+        "logo_J8ajbB": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/avasol_logo.png",
+            "image_width": 160,
+            "link": "shopify://collections/avasol",
+            "title": ""
+          }
+        },
+        "logo_qxqTcA": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Wild_things_gallery_australia_logo_brand_Pemulis.png",
+            "image_width": 160,
+            "link": "shopify://collections/wild-things-australia",
+            "title": ""
+          }
+        },
+        "logo_MUVQPY": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/true_ames_logo.jpg",
+            "image_width": 160,
+            "link": "shopify://collections/true-ames",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_mawKKR",
+        "logo_rc4Yaj",
+        "logo_dCxn9E",
+        "logo_niJrQR",
+        "logo_MiQpPU",
+        "logo_tUtaJr",
+        "logo_N4ExeJ",
+        "logo_TMeYjA",
+        "logo_rfLgRV",
+        "logo_VP7ree",
+        "logo_J8ajbB",
+        "logo_qxqTcA",
+        "logo_MUVQPY"
+      ],
+      "name": "Logo list",
+      "settings": {
+        "title": "Our Favorite Brands",
+        "image_opacity": 100,
+        "color_scheme": "default"
+      }
+    },
+    "slideshow_JiQL99": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9CLXJF": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mafia_banner2.jpg",
+            "slide_link": "shopify://collections/mafia-bags",
+            "subheading": "Designed in San Francisco",
+            "title": "MAFIA BAGS",
+            "heading_max_width": 15,
+            "title_size": 84,
+            "title_size_mobile": 46,
+            "use_h1": false,
+            "text": "<p>MADE FROM UPCYCLED SAILS</p>",
+            "enlarge_text": true,
+            "button_label_1": "",
+            "button_url_1": "",
+            "button_label_2": "Shop all",
+            "button_url_2": "shopify://collections/mafia-bags",
+            "text_alignment": "top right"
+          }
+        },
+        "image_KqKRCR": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mafia_bags.png",
+            "slide_link": "shopify://collections/mafia-bags",
+            "subheading": "",
+            "title": "",
+            "heading_max_width": 15,
+            "title_size": 84,
+            "title_size_mobile": 46,
+            "use_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_label_1": "",
+            "button_url_1": "",
+            "button_label_2": "",
+            "button_url_2": "",
+            "text_alignment": "center center"
+          }
+        },
+        "image_fa96nC": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/mafia_banner2-090.jpg",
+            "slide_link": "",
+            "subheading": "Tell your story",
+            "title": "Slide heading",
+            "heading_max_width": 15,
+            "title_size": 84,
+            "title_size_mobile": 46,
+            "use_h1": false,
+            "text": "<p>And optional subtext</p>",
+            "enlarge_text": true,
+            "button_label_1": "Shop this",
+            "button_url_1": "",
+            "button_label_2": "Shop all",
+            "button_url_2": "",
+            "text_alignment": "center center"
+          }
+        },
+        "image_Kt8ydL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MG_1975.jpg",
+            "slide_link": "",
+            "subheading": "PEmulis Floating Dolphin",
+            "title": "THE ULTIMATE STOCKING STUFFER",
+            "heading_max_width": 25,
+            "title_size": 60,
+            "title_size_mobile": 46,
+            "use_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_label_1": "BUY NOW",
+            "button_url_1": "shopify://products/pemulis-water-power-pemulis-floating-dolphin-keychain-floatation-devices-high-quality-gear",
+            "button_label_2": "",
+            "button_url_2": "",
+            "text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "image_9CLXJF",
+        "image_KqKRCR",
+        "image_fa96nC",
+        "image_Kt8ydL"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "height": "fixed",
+        "height_desktop": 600,
+        "height_mobile": 460,
+        "full_width": false,
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background",
+        "transition": "fade",
+        "navigation": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "accessibility_info": ""
+      }
+    },
+    "collection_list_4C6Ktk": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_C7ctdR": {
+          "type": "collection",
+          "settings": {
+            "collection": "gato-heroi-wetsuits",
+            "subheading": "Aesthetics Matter",
+            "button_label": ""
+          }
+        },
+        "collection_mp4eeV": {
+          "type": "collection",
+          "settings": {
+            "collection": "wild-things-fins",
+            "subheading": "Imported From Oz",
+            "button_label": ""
+          }
+        },
+        "collection_mCPeEU": {
+          "type": "collection",
+          "settings": {
+            "collection": "avasol",
+            "subheading": "Eco Friendly Mineral Sunscreen",
+            "button_label": ""
+          }
+        },
+        "collection_x7jrFn": {
+          "type": "collection",
+          "settings": {
+            "collection": "rage",
+            "subheading": "Team Gear",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_C7ctdR",
+        "collection_mp4eeV",
+        "collection_mCPeEU",
+        "collection_x7jrFn"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Surf Brands",
+        "enable_carousel": true,
+        "grid": 4,
+        "color_scheme": "default",
+        "full_width": true,
+        "coll_grid_image_shape": "square",
+        "coll_grid_image_position": "center center",
+        "coll_thumb_mob_per_row": "2",
+        "coll_grid_show_count": true,
+        "coll_text_position": "below",
+        "coll_text_position_under_mobile": false,
+        "coll_thumb_text_align_x": "center",
+        "coll_thumb_text_align_y": "center",
+        "coll_button_style": "primary"
+      }
+    },
+    "image_with_text_overlay_6FbM6k": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_EEznhw": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Blog Post"
+          }
+        },
+        "heading_YqE9TL": {
+          "type": "heading",
+          "settings": {
+            "title": "The Wonderful World Of Gato Heroi Fins",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "button_kmagMU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Find your Fin",
+            "button_link": "shopify://blogs/blog/gato-heroi-fin-buyer-s-guide-2024-full-profiles-board-pairings-how-to-choose-the-right-fin",
+            "button_style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_EEznhw",
+        "heading_YqE9TL",
+        "button_kmagMU"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2025-08-07_at_2.46.35_PM.png",
+        "height": "fixed",
+        "height_desktop": 560,
+        "height_mobile": 460,
+        "image_link": "shopify://pages/gato-heroi-fin-buyer-s-guide-2024-full-profiles-board-pairings-how-to-choose-the-right-fin",
+        "full_width": false,
+        "text_alignment": "bottom center",
+        "mobile_overlay_under": false,
+        "overlay_style": "no_background"
+      }
+    },
+    "1635927863703110df": {
+      "type": "rich-text",
+      "blocks": {
+        "1635927863703110df-1": {
+          "type": "heading",
+          "settings": {
+            "title": "San Francisco Surf Shop",
+            "use_h1": true
+          }
+        },
+        "1635927863703110df-2": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>A unique blend of interesting surf, motorsport, and home goods from all over the world</h2>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "1635927863703110df-1",
+        "1635927863703110df-2"
+      ],
+      "settings": {
+        "height": "small",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "16359279164ff7d3f3": {
+      "type": "gallery",
+      "blocks": {
+        "16359279164ff7d3f3-0": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2024-11-21_at_2.55.48_AM.png",
+            "enlarge_media": true,
+            "subheading": "",
+            "title": "*When you purchase a new Surfboard",
+            "button_label": "FREE HAT!*",
+            "link": "shopify://products/pemulis-logo-trucker-hat-hats",
+            "text_alignment": "bottom right"
+          }
+        },
+        "16359279164ff7d3f3-1": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/pemulis_interior_used_board_rack.jpg",
+            "enlarge_media": false,
+            "subheading": "Gallery",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        },
+        "16359279164ff7d3f3-2": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/IMG_2967_1.png",
+            "enlarge_media": false,
+            "subheading": "Events",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        },
+        "474c4491-283d-4680-a37b-7b5a444e7e62": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/20DW-STORY16.jpg",
+            "enlarge_media": false,
+            "subheading": "WTF",
+            "title": "EL SOLITARIO",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        }
+      },
+      "block_order": [
+        "16359279164ff7d3f3-0",
+        "16359279164ff7d3f3-1",
+        "16359279164ff7d3f3-2",
+        "474c4491-283d-4680-a37b-7b5a444e7e62"
+      ],
+      "disabled": true,
+      "settings": {
+        "grid_desktop": 1,
+        "grid_mobile": "1",
+        "height": "adapt",
+        "desktop_image_height": 460,
+        "mobile_image_height": 400,
+        "title_size": 30,
+        "title_size_mobile": 22,
+        "enable_margin": true,
+        "enable_row_spacing": true,
+        "full_width": false,
+        "color_scheme": "default",
+        "enable_carousel": true,
+        "overlay_style": "no_background",
+        "button_style": "primary"
+      }
+    },
+    "background_video_modified_4GjkFq": {
+      "type": "background-video-modified",
+      "blocks": {
+        "button_kgyRFN": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP RARE AND VINTAGE TEES",
+            "button_link": "shopify://collections/unique-t-shirts",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_kgyRFN"
+      ],
+      "name": "Background video stop",
+      "settings": {
+        "video_shopify": "shopify://files/videos/tshirt video.mp4",
+        "video_external": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_description": "",
+        "text_alignment": "center center",
+        "height_desktop": 500,
+        "height_mobile": 500,
+        "full_width": false,
+        "overlay_style": "no_background"
+      }
+    },
+    "featured_collection_aiVjFz": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "",
+        "collection": "unique-t-shirts",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 5,
+        "rows": 1,
+        "color_scheme": "default",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "16359278676808bea5": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "MX Jerseys",
+        "collection": "mx-jerseys",
+        "show_vendor": true,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "default",
+        "show_view_all": true,
+        "full_width": true
+      }
+    },
+    "163592870141219e2f": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "title": "Blog posts",
+        "blog": "blog",
+        "post_limit": 3,
+        "show_author": false,
+        "show_date": true,
+        "show_excerpts": true,
+        "crop_ratio": "0.67",
+        "color_scheme": "default"
+      }
+    },
+    "hotspots_fxcyjj": {
+      "type": "hotspots",
+      "blocks": {
+        "hotspot_at4Ejb": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 28,
+            "hotspot_y": 38,
+            "hotspot_x_mobile": 28,
+            "hotspot_y_mobile": 38,
+            "heading": "Feature name",
+            "text": "<p>Share useful information about your product features.</p>",
+            "icon": "",
+            "icon_width": 32
+          }
+        },
+        "hotspot_gNqBig": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 60,
+            "hotspot_y": 23,
+            "hotspot_x_mobile": 60,
+            "hotspot_y_mobile": 23,
+            "heading": "Feature name",
+            "text": "<p>Share useful information about your product features.</p>",
+            "icon": "",
+            "icon_width": 32
+          }
+        },
+        "hotspot_GGVJx7": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 73,
+            "hotspot_y": 54,
+            "hotspot_x_mobile": 73,
+            "hotspot_y_mobile": 54,
+            "heading": "Feature name",
+            "text": "<p>Share useful information about your product features.</p>",
+            "icon": "",
+            "icon_width": 32
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_at4Ejb",
+        "hotspot_gNqBig",
+        "hotspot_GGVJx7"
+      ],
+      "disabled": true,
+      "name": "Hotspots",
+      "settings": {
+        "hotspot_color": "#070707",
+        "button_content": "plus",
+        "outer_circle": "pulse",
+        "full_width": true,
+        "text_alignment": "top left",
+        "overlay_style": "shadow",
+        "subheading": "",
+        "title": "",
+        "use_h1": false,
+        "heading_max_width": 10,
+        "text": "",
+        "button_1_label": "",
+        "button_1_link": "",
+        "button_1_style": "secondary",
+        "button_2_label": "",
+        "button_2_link": "",
+        "button_2_style": "primary"
+      }
+    }
+  },
+  "order": [
+    "logo_list_QEr3LH",
+    "slideshow_JiQL99",
+    "collection_list_4C6Ktk",
+    "image_with_text_overlay_6FbM6k",
+    "1635927863703110df",
+    "16359279164ff7d3f3",
+    "background_video_modified_4GjkFq",
+    "featured_collection_aiVjFz",
+    "16359278676808bea5",
+    "163592870141219e2f",
+    "hotspots_fxcyjj"
+  ]
+}
