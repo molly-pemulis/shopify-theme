@@ -1,1 +1,366 @@
-{"sections":{"main":{"type":"main-page","settings":{"show_page_title":true,"full_width":true}},"rich_text_GgTCwT":{"type":"rich-text","blocks":{"heading_cWK6ha":{"type":"heading","settings":{"title":"Longboard Models","use_h1":false}},"text_QMAt4Y":{"type":"text","settings":{"text":"<h5>RK's collection of longboard models. RK developed and continues to refine these models, each of which is designed with a unique focus and and influenced by its own era and master shapers of the past. All of these boards embody the elegant, sleek GH style and incorporate the tradition of both Australian and Californian classic logging style. These are longboards that work in all conditions.<\/h5>","enlarge_text":true}}},"block_order":["heading_cWK6ha","text_QMAt4Y"],"settings":{"height":"medium","text_alignment":"center","full_width":false,"color_scheme":"default"}},"background_video_CB8fnm":{"type":"background-video","blocks":{"heading_4PMtCF":{"type":"heading","settings":{"title":"Smooth Operator","heading_max_width":15,"title_size":60,"title_size_mobile":32,"use_h1":false}},"text_Ty6L8T":{"type":"text","settings":{"text":"<p>Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.<\/p>","enlarge_text":false}}},"block_order":["heading_4PMtCF","text_Ty6L8T"],"settings":{"video_external":"https:\/\/vimeo.com\/196818605","video_description":"Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.","text_alignment":"top left","height_desktop":600,"height_mobile":500,"full_width":false,"overlay_style":"shadow"}},"custom_content_9jKqfK":{"type":"custom-content","blocks":{"text_cTLrKH":{"type":"text","settings":{"width":"full","subheading":"","title":"{{ metaobjects.surfboard_model_info[\"surfboard-model-info-smooth-op\"].gato_model_names | metafield_text }}","text":"<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-smooth-op\"].model_descriptions | metafield_tag }}<\/p>","button_label":"","button_link":"","button_style":"link","text_alignment":"center"}}},"block_order":["text_cTLrKH"],"settings":{"alignment":"middle"}},"product_list_mgfdNx":{"type":"product-list","settings":{"title":"","product_list":["gato-heroi-gato-heroi-9-7-smooth-operator-surfboard-archive-high-quality-gear","gato-heroi-95-smooth-operator","99-smooth-operator-gato-heroi"],"show_vendor":false,"enable_carousel":true,"grid":3,"color_scheme":"default","full_width":true}},"background_video_QR6LdA":{"type":"background-video","blocks":{"heading_aLjDhz":{"type":"heading","settings":{"title":"{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].gato_model_names | metafield_text }}","heading_max_width":15,"title_size":60,"title_size_mobile":32,"use_h1":false}},"text_KhttT3":{"type":"text","settings":{"text":"<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].abbreviated_description.value }}<\/p>","enlarge_text":false}}},"block_order":["heading_aLjDhz","text_KhttT3"],"settings":{"video_external":"https:\/\/vimeo.com\/132298381","video_description":"","text_alignment":"top left","height_desktop":600,"height_mobile":500,"full_width":false,"overlay_style":"shadow"}},"custom_content_XExCjy":{"type":"custom-content","blocks":{"text_4Hbwfw":{"type":"text","settings":{"width":"full","subheading":"","title":"{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].gato_model_names | metafield_text }}","text":"<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].model_descriptions | metafield_tag }}<\/p>","button_label":"","button_link":"","button_style":"link","text_alignment":"center"}}},"block_order":["text_4Hbwfw"],"settings":{"alignment":"middle"}},"product_list_3PAQMD":{"type":"product-list","settings":{"title":"Shop Now","product_list":["gato-heroi-gato-heroi-9-7-playboy-old-mal-tint-surfboard-archive-high-quality-gear","gato-heroi-gato-heroi-9-9-playboy-clear-surfboards-high-quality-gear","gato-heroi-gato-heroi-t-fin-single-fins-high-quality-gear"],"show_vendor":false,"enable_carousel":true,"grid":3,"color_scheme":"default","full_width":true}},"background_video_FRcnVQ":{"type":"background-video","blocks":{"heading_RAUTGy":{"type":"heading","settings":{"title":"{{ metaobjects.surfboard_model_info[\"californian-model-info\"].gato_model_names | metafield_text }}","heading_max_width":15,"title_size":60,"title_size_mobile":32,"use_h1":false}},"text_xDijf6":{"type":"text","settings":{"text":"<p>{{ metaobjects.surfboard_model_info[\"californian-model-info\"].model_descriptions | metafield_tag }}<\/p>","enlarge_text":false}}},"block_order":["heading_RAUTGy","text_xDijf6"],"settings":{"video_external":"https:\/\/vimeo.com\/543445075","video_description":"Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.","text_alignment":"top left","height_desktop":600,"height_mobile":500,"full_width":false,"overlay_style":"shadow"}},"product_list_NKkm3M":{"type":"product-list","settings":{"title":"Shop Now","product_list":["gato-heroi-gato-heroi-9-6-californian-surfboard-archive-high-quality-gear","gato-heroi-gato-heroi-9-9-californian-surfboard-archive-high-quality-gear","gato-heroi-b-fin"],"show_vendor":false,"enable_carousel":true,"grid":3,"color_scheme":"default","full_width":true}},"custom_content_dY3JqA":{"type":"custom-content","blocks":{"text_49ErHx":{"type":"text","settings":{"width":"full","subheading":"","title":"{{ metaobjects.surfboard_model_info[\"californian-model-info\"].gato_model_names | metafield_text }}","text":"<p>{{ metaobjects.surfboard_model_info[\"californian-model-info\"].model_descriptions | metafield_tag }}<\/p>","button_label":"","button_link":"","button_style":"link","text_alignment":"center"}}},"block_order":["text_49ErHx"],"settings":{"alignment":"middle"}},"background_video_mBYMTP":{"type":"background-video","blocks":{"heading_E7ditJ":{"type":"heading","settings":{"title":"{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].gato_model_names | metafield_text }}","heading_max_width":15,"title_size":60,"title_size_mobile":32,"use_h1":false}},"text_jG9iVH":{"type":"text","settings":{"text":"<p>{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].abbreviated_description.value }}<\/p>","enlarge_text":false}}},"block_order":["heading_E7ditJ","text_jG9iVH"],"settings":{"video_external":"https:\/\/vimeo.com\/552762134","video_description":"","text_alignment":"top left","height_desktop":600,"height_mobile":500,"full_width":false,"overlay_style":"shadow"}},"custom_content_GqVigq":{"type":"custom-content","blocks":{"text_QypmQQ":{"type":"text","settings":{"width":"full","subheading":"","title":"{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].gato_model_names | metafield_text }}","text":"<p>{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].model_descriptions | metafield_tag }}<\/p>","button_label":"","button_link":"","button_style":"link","text_alignment":"center"}}},"block_order":["text_QypmQQ"],"settings":{"alignment":"middle"}},"product_list_jUeGhF":{"type":"product-list","disabled":true,"settings":{"title":"","product_list":["gato-heroi-gato-heroi-9-7-smooth-operator-surfboard-archive-high-quality-gear","gato-heroi-95-smooth-operator","99-smooth-operator-gato-heroi"],"show_vendor":false,"enable_carousel":true,"grid":3,"color_scheme":"default","full_width":true}}},"order":["main","rich_text_GgTCwT","background_video_CB8fnm","custom_content_9jKqfK","product_list_mgfdNx","background_video_QR6LdA","custom_content_XExCjy","product_list_3PAQMD","background_video_FRcnVQ","product_list_NKkm3M","custom_content_dY3JqA","background_video_mBYMTP","custom_content_GqVigq","product_list_jUeGhF"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_page_title": true,
+        "full_width": true
+      }
+    },
+    "rich_text_GgTCwT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cWK6ha": {
+          "type": "heading",
+          "settings": {
+            "title": "Longboard Models",
+            "use_h1": false
+          }
+        },
+        "text_QMAt4Y": {
+          "type": "text",
+          "settings": {
+            "text": "<h5>RK's collection of longboard models. RK developed and continues to refine these models, each of which is designed with a unique focus and and influenced by its own era and master shapers of the past. All of these boards embody the elegant, sleek GH style and incorporate the tradition of both Australian and Californian classic logging style. These are longboards that work in all conditions.</h5>",
+            "enlarge_text": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_cWK6ha",
+        "text_QMAt4Y"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "background_video_CB8fnm": {
+      "type": "background-video",
+      "blocks": {
+        "heading_4PMtCF": {
+          "type": "heading",
+          "settings": {
+            "title": "Smooth Operator",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_Ty6L8T": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_4PMtCF",
+        "text_Ty6L8T"
+      ],
+      "settings": {
+        "video_external": "https://vimeo.com/196818605",
+        "video_description": "Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.",
+        "text_alignment": "top left",
+        "height_desktop": 600,
+        "height_mobile": 500,
+        "full_width": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "custom_content_9jKqfK": {
+      "type": "custom-content",
+      "blocks": {
+        "text_cTLrKH": {
+          "type": "text",
+          "settings": {
+            "width": "full",
+            "subheading": "",
+            "title": "{{ metaobjects.surfboard_model_info[\"surfboard-model-info-smooth-op\"].gato_model_names | metafield_text }}",
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-smooth-op\"].model_descriptions | metafield_tag }}</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "text_cTLrKH"
+      ],
+      "settings": {
+        "alignment": "middle"
+      }
+    },
+    "product_list_mgfdNx": {
+      "type": "product-list",
+      "settings": {
+        "title": "",
+        "product_list": [
+          "gato-heroi-9-7-smooth-operator-surfboard-archive",
+          "gato-heroi-95-smooth-operator",
+          "99-smooth-operator-gato-heroi"
+        ],
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 3,
+        "color_scheme": "default",
+        "full_width": true
+      }
+    },
+    "background_video_QR6LdA": {
+      "type": "background-video",
+      "blocks": {
+        "heading_aLjDhz": {
+          "type": "heading",
+          "settings": {
+            "title": "{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].gato_model_names | metafield_text }}",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_KhttT3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].abbreviated_description.value }}</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aLjDhz",
+        "text_KhttT3"
+      ],
+      "settings": {
+        "video_external": "https://vimeo.com/132298381",
+        "video_description": "",
+        "text_alignment": "top left",
+        "height_desktop": 600,
+        "height_mobile": 500,
+        "full_width": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "custom_content_XExCjy": {
+      "type": "custom-content",
+      "blocks": {
+        "text_4Hbwfw": {
+          "type": "text",
+          "settings": {
+            "width": "full",
+            "subheading": "",
+            "title": "{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].gato_model_names | metafield_text }}",
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"surfboard-model-info-playboy\"].model_descriptions | metafield_tag }}</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "text_4Hbwfw"
+      ],
+      "settings": {
+        "alignment": "middle"
+      }
+    },
+    "product_list_3PAQMD": {
+      "type": "product-list",
+      "settings": {
+        "title": "Shop Now",
+        "product_list": [
+          "gato-heroi-gato-heroi-9-7-playboy-old-mal-tint-surfboard-archive-high-quality-gear",
+          "gato-heroi-gato-heroi-9-9-playboy-clear-surfboards-high-quality-gear",
+          "gato-heroi-gato-heroi-t-fin-single-fins-high-quality-gear"
+        ],
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 3,
+        "color_scheme": "default",
+        "full_width": true
+      }
+    },
+    "background_video_FRcnVQ": {
+      "type": "background-video",
+      "blocks": {
+        "heading_RAUTGy": {
+          "type": "heading",
+          "settings": {
+            "title": "{{ metaobjects.surfboard_model_info[\"californian-model-info\"].gato_model_names | metafield_text }}",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_xDijf6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"californian-model-info\"].model_descriptions | metafield_tag }}</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RAUTGy",
+        "text_xDijf6"
+      ],
+      "settings": {
+        "video_external": "https://vimeo.com/543445075",
+        "video_description": "Classic pintail longboard with a balanced outline for the perfect blend of speed and maneuverability.",
+        "text_alignment": "top left",
+        "height_desktop": 600,
+        "height_mobile": 500,
+        "full_width": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "product_list_NKkm3M": {
+      "type": "product-list",
+      "settings": {
+        "title": "Shop Now",
+        "product_list": [
+          "gato-heroi-gato-heroi-9-6-californian-surfboard-archive-high-quality-gear",
+          "gato-heroi-gato-heroi-9-9-californian-surfboard-archive-high-quality-gear",
+          "gato-heroi-b-fin"
+        ],
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 3,
+        "color_scheme": "default",
+        "full_width": true
+      }
+    },
+    "custom_content_dY3JqA": {
+      "type": "custom-content",
+      "blocks": {
+        "text_49ErHx": {
+          "type": "text",
+          "settings": {
+            "width": "full",
+            "subheading": "",
+            "title": "{{ metaobjects.surfboard_model_info[\"californian-model-info\"].gato_model_names | metafield_text }}",
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"californian-model-info\"].model_descriptions | metafield_tag }}</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "text_49ErHx"
+      ],
+      "settings": {
+        "alignment": "middle"
+      }
+    },
+    "background_video_mBYMTP": {
+      "type": "background-video",
+      "blocks": {
+        "heading_E7ditJ": {
+          "type": "heading",
+          "settings": {
+            "title": "{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].gato_model_names | metafield_text }}",
+            "heading_max_width": 15,
+            "title_size": 60,
+            "title_size_mobile": 32,
+            "use_h1": false
+          }
+        },
+        "text_jG9iVH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].abbreviated_description.value }}</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_E7ditJ",
+        "text_jG9iVH"
+      ],
+      "settings": {
+        "video_external": "https://vimeo.com/552762134",
+        "video_description": "",
+        "text_alignment": "top left",
+        "height_desktop": 600,
+        "height_mobile": 500,
+        "full_width": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "custom_content_GqVigq": {
+      "type": "custom-content",
+      "blocks": {
+        "text_QypmQQ": {
+          "type": "text",
+          "settings": {
+            "width": "full",
+            "subheading": "",
+            "title": "{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].gato_model_names | metafield_text }}",
+            "text": "<p>{{ metaobjects.surfboard_model_info[\"dagger-model-info\"].model_descriptions | metafield_tag }}</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "link",
+            "text_alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "text_QypmQQ"
+      ],
+      "settings": {
+        "alignment": "middle"
+      }
+    },
+    "product_list_jUeGhF": {
+      "type": "product-list",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "product_list": [
+          "gato-heroi-9-7-smooth-operator-surfboard-archive",
+          "gato-heroi-95-smooth-operator",
+          "99-smooth-operator-gato-heroi"
+        ],
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 3,
+        "color_scheme": "default",
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_GgTCwT",
+    "background_video_CB8fnm",
+    "custom_content_9jKqfK",
+    "product_list_mgfdNx",
+    "background_video_QR6LdA",
+    "custom_content_XExCjy",
+    "product_list_3PAQMD",
+    "background_video_FRcnVQ",
+    "product_list_NKkm3M",
+    "custom_content_dY3JqA",
+    "background_video_mBYMTP",
+    "custom_content_GqVigq",
+    "product_list_jUeGhF"
+  ]
+}
